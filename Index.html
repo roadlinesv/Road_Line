@@ -11,6 +11,998 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="cssindex/style.css">
 </head>
+    <style>
+        /* Variables CSS */
+
+:root {
+    --primary-color: #FE7743;
+    --primary-color-dark: #273F4F;
+    --text-dark: #000000;
+    --text-light: #767268;
+    --extra-light: #EFEEEA;
+    --white: #ffffff;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+h1, h2, h4{
+    font-family: 'freightDisp Pro Black','serif';
+}
+p{
+  font-family: 'basis grotesque', sans-serif;
+}
+h3{
+    font-weight: bold;
+}
+
+    /* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #273F4F;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-btn div {
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #e2dcdc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  display: none;
+  flex-direction: column;
+  width: 280px;
+  height: 500px;
+  z-index: 1;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #fe7743;
+}
+
+.show {
+  display: flex;
+}
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+
+.section__header {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 3.25rem;
+    text-align: center;
+}
+
+.section__description {
+    color: var(--text-light);
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+/*boton de registrar*/
+.btn {
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+}
+
+/*logo*/
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    max-width: 35px;
+}
+
+.logo span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--white); /* Este color blanco solo aplicará si el logo es un span, no en el header actual que tiene color oscuro. */
+    white-space: nowrap;
+}
+/*Finaliza logo*/
+
+/* Sección Hero (Inicio) */
+.hero {
+    background: url('https://loscoches.com/wp-content/uploads/2021/04/carros-deportivos-potencia.jpg') center center/cover no-repeat;
+   height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero .container h1,
+  .hero .container p {
+   margin-right: auto;
+  color: white ;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Barra de busqueda */
+.header__form {
+    transform: translateY(-50%); /* Ajuste para superponer en la sección hero */
+    margin-bottom: -50px; /* Compensa el translateY para que el flujo de la página sea normal */
+    z-index: 50; /* Para que esté sobre otras secciones */
+    position: relative; /* Necesario para z-index */
+}
+
+.header__form form {
+    max-width: 900px;
+    margin-inline: auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: var(--white);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+}
+
+.header__form .input__group {
+    flex: 1 0 170px;
+    display: grid;
+    gap: 10px;
+}
+
+.header__form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.header__form input {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.header__form input::placeholder {
+    color: var(--text-light);
+}
+
+.header__form .btn {
+    padding: 15px 17px;
+}
+
+/*Sobre nosotros*/
+.about__container .section__description {
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: 4rem;
+}
+
+.about__grid {
+    display: grid;
+    gap: 2rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+}
+
+.about__card {
+    max-width: 300px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.about__card span {
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    padding: 16px 20px;
+    border-radius: 1.25rem;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about__card:nth-child(1) span {
+    color: #FE7743;
+    background-color: #eeebfd;
+}
+
+.about__card:nth-child(2) span {
+    color: #FE7743;
+    background-color: #fff2e8;
+}
+
+.about__card:nth-child(3) span {
+    color: #FE7743;
+    background-color: #fde9ea;
+}
+
+.about__card h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.about__card p {
+    color: var(--text-light);
+    line-height: 1.5rem;
+}
+/* recomendando Carros- */
+.cars-section {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  justify-content: center;
+  background-color: #f7f9ff;
+}
+
+.car-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+}
+
+.car-card img {
+ border-radius: 10px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.car-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.car-info h3 {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.car-price {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.car-price strong {
+  font-size: 1.2rem;
+  color: #111;
+}
+
+.car-price span {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.rent-now {
+  color: rgb(243, 139, 91);
+  font-weight: 500;
+  text-decoration: none;
+}
+.section-title {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+ padding: 2%;
+  color: #111;
+  font-weight: bold;
+}
+
+/* Sección Porq nos elige (Choose Us) */
+.choose__container {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto una columna en móvil */
+    gap: 2rem;
+}
+
+.choose__image {
+    align-items: left;
+    position: relative;
+    isolation: isolate;
+    height: 10px; 
+}
+
+.choose__image img {
+    position: absolute;
+    top: 10%;
+    left: -50%; /* Mueve la imagen hacia la izquierda */
+    transform: translate(-30%, -30%);
+    width: 50px;
+    height: 50px;
+}
+
+.choose__content {
+    padding-block: 2rem 5rem;
+    padding-inline: 1rem;
+}
+
+.choose__grid {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+}
+
+.choose__card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.choose__card span {
+    padding: 5px 7px;
+    font-size: 1.5rem;
+    background-color: var(--extra-light);
+    color: var(--primary-color);
+    border-radius: 0.5rem;
+}
+
+.choose__card h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.choose__card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5rem;
+}
+
+/* Sección de Subscripción */
+.subscribe__image{
+    position: absolute;
+    top: 50%;
+    right: 20%; /* Mueve la imagen hacia la derecha  */
+    width: 100%;
+    height: 100%;
+}
+
+.subscribe__container {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    overflow: hidden;
+    background-color: var(--extra-light);
+    grid-template-columns: 1fr; /* Por defecto una columna en móvil */
+    gap: 2rem;
+}
+
+.subscribe__container::before,
+.subscribe__container::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3rem;
+    top: 0;
+    left: 0;
+    background-color: var(--extra-light);
+    z-index: -1;
+}
+
+.subscribe__container::after {
+    top: unset;
+    bottom: 0;
+}
+
+.subscribe__content {
+    padding-block: 2rem 8rem;
+    padding-inline: 1rem;
+}
+
+#formulario {
+   max-width: 495px; 
+  margin-left: 0;    
+  margin-right: auto; 
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#formulario:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+#formulario input[type="email"],
+#formulario input[type="password"] {
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+#formulario input[type="email"]:focus,
+#formulario input[type="password"]:focus {
+  border-color: #FE7743;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+#formulario .btn-success {
+  padding: 0.75rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  background-color: #FE7743;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+#formulario .btn-success:hover {
+  background-color: #FE7743;
+}
+
+
+/* Sección de Comentarios (Clients) */
+.client__container {
+    padding-bottom: 1rem;
+}
+
+.client__container .section__description {
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.swiper {
+    padding-block: 4rem;
+    width: 100%;
+}
+
+.swiper-slide {
+    min-width: 375px; /* Asegura que cada slide tenga un ancho mínimo para verse bien */
+}
+
+.client__card {
+    padding: 1.5rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.client__card:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.client__details {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.client__details img {
+    max-width: 50px;
+    border-radius: 100%;
+    object-fit: cover; /* Para asegurar que las imágenes de perfil se vean bien */
+    height: 50px;
+}
+
+.client__details h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.client__rating {
+    color: rgb(144, 162, 173);
+}
+
+.client__card p {
+    color: var(--text-light);
+    line-height: 1.5rem;
+}
+
+
+/* Media Queries para diseño responsive (Desktop) */
+@media (min-width: 768px) {
+    /* Ajustes para la sección "Porq nos elige" */
+    .choose__container {
+        grid-template-columns:
+            minmax(0, 1fr) /* Columna izquierda para el borde */
+            minmax(0, calc(var(--max-width) / 2)) /* Columna de la imagen */
+            minmax(0, calc(var(--max-width) / 2)) /* Columna del contenido */
+            minmax(0, 1fr); /* Columna derecha para el borde */
+        align-items: center; /* Centrar verticalmente el contenido */
+    }
+
+    .choose__image {
+        grid-area: 1/1/2/3; /* Ocupa las dos primeras columnas */
+        height: 100%;
+    }
+
+    .choose__image img {
+        top: 50%;
+        right: 0; /* Ajusta la imagen a la derecha */
+        transform: translateY(-50%); /* Solo translate Y */
+        width: unset; /* Deja que el ancho se ajuste naturalmente */
+        height: 100%;
+        object-fit: cover; /* Recorta la imagen para cubrir el área */
+    }
+
+    .choose__content {
+        padding-block: 5rem;
+       
+    }
+
+    .choose__content :is(.section__header, .section__description) {
+        text-align: left;
+    }
+
+    /* Ajustes para la sección de Subscripción */
+    .subscribe__container {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, calc(var(--max-width) / 2))
+            minmax(0, calc(var(--max-width) / 2))
+            minmax(0, 1fr);
+        align-items: center;
+    }
+
+    .subscribe__image {
+        grid-area: 1/3/2/5; /* Ocupa las dos últimas columnas */
+        height: 100%;
+    }
+
+    .subscribe__image img {
+        top: 50%;
+        left: 0; /* Ajusta la imagen a la izquierda */
+        transform: translateY(-50%); /* Solo translate Y */
+        width: unset;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .subscribe__content {
+        padding-block: 8rem;
+        grid-area: 1/2/2/3; /* Ocupa la segunda columna */
+    }
+
+    .subscribe__content :is(.section__header, .section__description) {
+        text-align: left;
+    }
+
+    .subscribe__content form {
+        margin-inline-start: unset;
+    }
+
+  }
+
+@media (max-width: 576px) {
+    .menu-moderno {
+        padding: 15px 20px;
+        flex-direction: column; /* Apila los elementos en vertical */
+        gap: 15px;
+    }
+
+    .menu-moderno .enlaces {
+        flex-direction: column; /* Apila los enlaces */
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .busqueda {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .busqueda input {
+        width: 80%; /* Ajusta el ancho del input de búsqueda */
+    }
+
+    .hero {
+        height: 80vh; /* Reduce la altura en pantallas pequeñas */
+        padding: 2rem 1rem;
+    }
+
+    .hero .container h1 {
+        font-size: 2.5rem; /* Ajusta el tamaño del título */
+        line-height: 1.2;
+    }
+
+    .hero .container p {
+        font-size: 1rem; /* Ajusta el tamaño del párrafo */
+    }
+
+    .header__form form {
+        flex-direction: column;
+        padding: 0.75rem;
+    }
+
+    .header__form .input__group {
+        width: 100%;
+    }
+
+    .header__form .btn {
+        width: 100%;
+    }
+
+    .section__header {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+}/* Estilos del Footer */
+.footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 60px 0 0 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #273F4F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon.facebook:hover {
+    background-color: #1877f2;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.twitter:hover {
+    background-color: #1da1f2;
+}
+
+.social-icon.youtube:hover {
+    background-color: #ff0000;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: #FE7743;
+    transition: width 0.3s ease;
+}
+
+.footer-section:hover h3::after {
+    width: 50px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #888;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-section ul li a::before {
+    content: '›';
+    margin-right: 8px;
+    color: #FE7743;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #FE7743;
+    padding-left: 10px;
+}
+
+.footer-section ul li a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.contact-info li i {
+    color: #FE7743;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #111111;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #273F4F;
+}
+
+/* Responsive del Footer */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-media {
+        justify-content: center;
+    }
+
+    .contact-info li {
+        justify-content: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+
+  /* Contenedor del popup */
+    
+   .overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #FE7743;
+}
+
+#nativeBtn {
+  background-color: #FE7743;
+  border: none;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+#btn-popup:hover {
+  background-color: #e86534;
+}
+
+#btn-popup:focus,
+#btn-popup:active {
+  outline: none;
+  box-shadow: none;
+}
+    </style>
 <body>
   <nav class="navbar">
   <a href="index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
@@ -387,3 +1379,4 @@
   </body>
 
 </html>
+
