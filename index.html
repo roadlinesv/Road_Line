@@ -1373,10 +1373,169 @@ h3{
     <script src="js_index/inicio.js"></script>
     <script src="js_index/inicio.js"></script>
 
+    <script>
+        //Navbar
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+
+btn.addEventListener('click', () => {
+  btn.classList.toggle('open');
+  menu.classList.toggle('show');
+});
+
+// Cierra el menú si haces clic fuera de él
+document.addEventListener('click', function(event) {
+  if (!btn.contains(event.target) && !menu.contains(event.target)) {
+    btn.classList.remove('open');
+    menu.classList.remove('show');
+  }
+});
+
+// Personalizacion de las fechas
+  flatpickr("#pickup-date", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today"
+  });
+
+  flatpickr("#return-date", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today"
+  });
+
+
+// Opciones de ScrollReveal para las animaciones
+const scrollRevealOption = {
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
+  easing: "ease-in-out", 
+};
+
+// Animaciones para la sección Hero
+ScrollReveal().reveal(".hero .container h1", {
+  ...scrollRevealOption,
+  delay: 200, 
+});
+ScrollReveal().reveal(".hero .container p", {
+  ...scrollRevealOption,
+  delay: 200, 
+});
+
+// Animación para la barra de búsqueda
+ScrollReveal().reveal(".header__form form", {
+  ...scrollRevealOption,
+  delay: 200, 
+  origin: "top", 
+});
+
+// Animaciones para las tarjetas "About Us"
+ScrollReveal().reveal(".about__card", {
+  ...scrollRevealOption,
+  interval: 200, 
+  origin: "bottom",
+});
+
+
+// Animaciones para la sección "Por qué nos elige"
+ScrollReveal().reveal(".choose__image img", {
+  ...scrollRevealOption,
+  origin: "right", 
+});
+ScrollReveal().reveal(".choose__content .section__header", {
+  ...scrollRevealOption,
+  delay: 300, // Retraso para el título
+});
+ScrollReveal().reveal(".choose__content .section__description", {
+  ...scrollRevealOption,
+  delay: 600, // Retraso para la descripción
+});
+ScrollReveal().reveal(".choose__card", {
+  ...scrollRevealOption, 
+  delay: 800, // Retraso inicial para las tarjetas de "choose"
+  interval: 100, // Pequeño retraso entre cada tarjeta
+  origin: "bottom",
+});
+
+// Animaciones para la sección de suscripción
+ScrollReveal().reveal(".subscribe__image img", {
+  ...scrollRevealOption,
+  origin: "right", // La imagen viene de la derecha
+});
+ScrollReveal().reveal(".subscribe__content .section__header", {
+  ...scrollRevealOption,
+  delay: 300, // Retraso para el título
+});
+ScrollReveal().reveal(".subscribe__content .section__description", {
+  ...scrollRevealOption,
+  delay: 600, // Retraso para la descripción
+});
+ScrollReveal().reveal(".subscribe__content form", {
+  ...scrollRevealOption,
+  delay: 900, // Retraso para el formulario de suscripción
+});
+
+// Inicialización de Swiper para los comentarios de clientes
+
+
+ScrollReveal().reveal(".service__card", {
+  duration: 1000,
+  interval: 500,
+});
+
+const swiper = new Swiper(".swiper", {
+  slidesPerView: 3,
+  spaceBetween: 20,
+  loop: true,
+});
+
+     // Mostrar popup
+  document.getElementById("formulario").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita que se recargue la página
+    document.getElementById("popupOverlay").style.display = "flex";
+  });
+
+  // Función para cerrar popup
+  function hidePopup() {
+    document.getElementById("popupOverlay").style.display = "none";
+  }
+//Para que caigan notificaciones 
+
+  async function askAndNotify() {
+    if (!('Notification' in window)) {
+      alert('This browser does not support the notifications API.');
+      return;
+    }
+
+    const permission = await Notification.requestPermission(); // "granted", "denied" o "default"
+    if (permission !== 'granted') {
+      console.log('Permission not granted for notifications.');
+      return;
+    }
+
+    const notif = new Notification('Roadline', {
+      body: 'New deal available: Drive your dream car today.',
+      icon: '/img/icon-192.png', // opcional
+      tag: 'new-menssaje' // evita duplicados 
+    });
+
+    notif.onclick = () => {
+      window.focus();
+      // navegar a sección
+      window.location.href = '/menssajes';
+    };
+  }
+
+  document.getElementById('nativeBtn').addEventListener('click', askAndNotify);
+
+    </script>
+
 
     <script src="//code.tidio.co/qzpqul1pvj4heu54gujuwuzphmx0xwu5.js" async></script>
 
   </body>
 
 </html>
+
 
