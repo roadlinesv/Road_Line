@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/AboutUs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <style>
+
+     :root {
+      --primary-color: #273f4f;
+      --accent-color: #fe7743;
+      --text-dark: #222;
+      --text-light: #666;
+      --bg-light: #f7f7f7;
+      --bg-white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+  
+h1, h2, h4{
+    font-family: 'freightDisp Pro Black','serif';
+}
+p{
+  font-family: 'basis grotesque', sans-serif;
+}
+h3{
+    font-weight: bold;
+}
+
+    /* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #273F4F;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-btn div {
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #e2dcdc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  display: none;
+  flex-direction: column;
+  width: 280px;
+  height: 500px;
+  z-index: 1;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #fe7743;
+}
+
+.show {
+  display: flex;
+}
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+    
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .enlaces {
+      display: flex;
+      gap: 40px;
+    }
+
+    .enlaces a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .enlaces a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
+    }
+
+    .enlaces a:hover::after {
+      width: 100%;
+    }
+
+    .busqueda input {
+      padding: 10px 18px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      font-size: 0.9rem;
+    }
+
+    .principio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+      padding: 120px 60px;
+      gap: 60px;
+      background-color: var(--bg-white);
+    }
+
+    .sobrenosotros {
+      width: 100%;
+      max-width: 550px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+
+    .texto1 {
+      max-width: 550px;
+    }
+
+    .cuadro {
+      background-color: transparent;
+      padding-left: 20px;
+      border-left: 5px solid var(--accent-color);
+      margin-bottom: 25px;
+    }
+
+    .cuadro h1 {
+      font-size: 3.5rem;
+      color: var(--primary-color);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .texto1 p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      header.menu-moderno {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .principio {
+        padding: 60px 20px;
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .cuadro {
+        padding-left: 0;
+        border-left: none;
+        border-top: 4px solid var(--accent-color);
+        padding-top: 10px;
+      }
+    }
+
+     .video-section {
+      position: relative;
+      overflow: hidden;
+      height: 500px;
+    }
+
+    .video-section video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+    }
+
+    .video-overlay h2 {
+      font-size: 3rem;
+      font-weight: 600;
+      font-family: 'FreighDisp Pro Black' serif;
+    }
+
+    .video-overlay p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-top: 15px;
+    }
+
+    .principio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+      padding: 120px 60px;
+      gap: 60px;
+      background-color: var(--bg-white);
+    }
+
+    .sobrenosotros {
+      width: 100%;
+      max-width: 550px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+
+    .texto1 {
+      max-width: 550px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+   
+
+    .cuadro {
+      background-color: transparent;
+      padding-left: 20px;
+      border-left: 5px solid var(--accent-color);
+      margin-bottom: 25px;
+    }
+
+    .cuadro h1 {
+      font-size: 3.5rem;
+      color: var(--primary-color);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .texto1 p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      header.menu-moderno {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .principio {
+        padding: 60px 20px;
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .cuadro {
+        padding-left: 0;
+        border-left: none;
+        border-top: 4px solid var(--accent-color);
+        padding-top: 10px;
+      }
+    }
+
+    .about-roadline-section {
+    background-color: #ffffff;
+    padding: 100px 30px;
+    text-align: center;
+  }
+
+  .about-roadline-section h2 {
+    font-size: 3rem;
+    color: #273f4f;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .about-roadline-section .intro-text {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    line-height: 1.7;
+  }
+
+  .about-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .about-card {
+    background-color: #f8f8f8;
+    padding: 40px 30px;
+    border-radius: 12px;
+    max-width: 300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+  }
+
+  .about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  }
+
+  .about-card i {
+    color: #fe7743;
+    margin-bottom: 20px;
+  }
+
+  .about-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #273f4f;
+  }
+
+  .about-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .about-roadline-section h2 {
+      font-size: 2.2rem;
+    }
+
+    .about-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-card {
+      width: 90%;
+    }
+  }
+
+  .sobrenosotrosseccion {
+  background-color: #fdfdfd;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.sobrenosotrosseccion .contenido {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.sobrenosotrosseccion h2 {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: #273f4f;
+  font-family: 'Times New Roman', serif;
+  position: relative;
+}
+
+.sobrenosotrosseccion h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #fe7743;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.aboutus-contenido {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aboutus-texto {
+  flex: 1;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+  background-color: #ffffff;
+  padding: 30px;
+  border-left: 5px solid #fe7743;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+.aboutus-imagen {
+  flex: 1;
+  max-width: 500px;
+}
+
+.aboutus-imagen img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.values-section {
+  background-color: #ffffff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.values-header h2 {
+  font-size: 3rem;
+  color: #273f4f;
+  margin-bottom: 10px;
+  font-family: 'Times New Roman', serif;
+}
+
+.values-header p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 60px;
+}
+
+.values-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.value-card {
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 260px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.icon-container {
+  font-size: 2.5rem;
+  color: #fe7743;
+  margin-bottom: 20px;
+}
+
+.value-card h3 {
+  font-size: 1.6rem;
+  color: #273f4f;
+  margin-bottom: 15px;
+}
+
+.value-card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.misionseccion {
+  position: relative;
+  background-color: #f4f6f7;
+  padding: 120px 20px;
+  overflow: hidden;
+}
+
+.mision-overlay {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.carro-fondo {
+  position: absolute;
+  right: -50px;
+  bottom: 0;
+  width: 600px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mision-textos {
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.bloque-transparente {
+  background: rgba(39, 63, 79, 0.85); /* oscuro con transparencia */
+  color: #ffffff;
+  padding: 30px 35px;
+  border-radius: 16px;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease;
+}
+
+.bloque-transparente:hover {
+  transform: translateY(-6px);
+}
+
+.bloque-transparente .label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.bloque-transparente p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .carro-fondo {
+    width: 90%;
+    right: -100px;
+    bottom: -50px;
+  }
+
+  .mision-textos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bloque-transparente {
+    width: 90%;
+  }
+}
+.teamsection2 {
+  background-color: #f8f9fb;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.team-container2 {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 80px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.team-texto2 {
+  flex: 1;
+}
+
+.team-texto2 h2 {
+  font-size: 2.8rem;
+  color: #273f4f;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.team-texto2 p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.boton2 {
+  display: inline-block;
+  background-color: #fe7743;
+  color: #fff;
+  padding: 14px 26px;
+  text-decoration: none;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.boton2:hover {
+  background-color: #273f4f;
+}
+
+.team-imagen2 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.team-imagen2 img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-container2 {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .team-texto2 p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .team-imagen2 img {
+    max-width: 90%;
+  }
+}
+
+.teamsection {
+  background-color: #ffffff;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.team-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 80px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.team-texto {
+  flex: 1;
+}
+
+.team-texto h2 {
+  font-size: 2.8rem;
+  color: #273f4f;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.team-texto p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.boton-team {
+  display: inline-block;
+  background-color: #fe7743;
+  color: #fff;
+  padding: 14px 26px;
+  text-decoration: none;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.boton-team:hover {
+  background-color: #273f4f;
+}
+
+.team-imagen {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.team-imagen img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .team-texto p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .team-imagen img {
+    max-width: 90%;
+  }
+}
+.footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 60px 0 0 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #273F4F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon.facebook:hover {
+    background-color: #1877f2;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.twitter:hover {
+    background-color: #1da1f2;
+}
+
+.social-icon.youtube:hover {
+    background-color: #ff0000;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: #FE7743;
+    transition: width 0.3s ease;
+}
+
+.footer-section:hover h3::after {
+    width: 50px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #888;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-section ul li a::before {
+    content: '›';
+    margin-right: 8px;
+    color: #FE7743;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #FE7743;
+    padding-left: 10px;
+}
+
+.footer-section ul li a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.contact-info li i {
+    color: #FE7743;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #111111;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #273F4F;
+}
+
+/* Responsive del Footer */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-media {
+        justify-content: center;
+    }
+
+    .contact-info li {
+        justify-content: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+  </style>
+  
+ <nav class="navbar">
+  <a href="index.html"><img src="logo2.0.png" alt="Logo"></a>
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="iniciode_sesión.html">Login</a>
+    <a href="AboutUs.html">Nosotros</a>
+   
+    <hr>
+
+    <!--APARTADOS QUE LE AGREGO AL MENÚ-->
+    <a href="carros.html">Buscador</a>
+    <a href="arreglos.html">Gifts cards</a>
+    <a href="Becomeahost.html">Become a host</a>
+    <a href="howorks.html">How road line works</a>       
+    <a href="#">Contact support</a> 
+    <a href="terms & concepts.html">terms and concepts</a> 
+     <a href="insurance.html">Insurance & protection</a> 
+  </div>
+</nav>
+
+   <section class="video-section">
+    <video autoplay muted loop>
+      <source src="https://cdn.pixabay.com/video/2022/12/04/141599-777930516_tiny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay">
+      <h2>Experience Speed and Style</h2>
+      <p>Explore the freedom of car sharing with RoadLine. Drive your way.</p>
+    </div>
+  </section>
+
+  <section class="about-roadline-section">
+  <div class="container">
+    <h2>About RoadLine</h2>
+    <p class="intro-text">
+      RoadLine isn't just about getting from point A to B — it's about transforming the way we move. Our community is growing every day, connecting people with smarter, cleaner, and more reliable transportation.
+    </p>
+      <section class="principio">
+    <img src="imgAnne/hola.jpeg" alt="Yellow van with man walking" class="sobrenosotros">
+    <div class="texto1">
+      <div class="cuadro">
+        <h1>About <br> RoadLine</h1>
+  </section>
+    <div class="about-content">
+      <div class="about-card">
+        <i class="fas fa-car fa-3x"></i>
+        <h3>Smart Mobility</h3>
+        <p>We provide tech-driven, flexible access to vehicles when you need them most, without the stress of ownership.</p>
+      </div>
+      <div class="about-card">
+        <i class="fas fa-globe-americas fa-3x"></i>
+        <h3>Eco-Friendly</h3>
+        <p>Every shared ride means fewer cars on the road. RoadLine helps cut carbon emissions while keeping people connected.</p>
+      </div>
+      <div class="about-card">
+        <i class="fas fa-users fa-3x"></i>
+        <h3>Community Driven</h3>
+        <p>We're built on trust, transparency, and collaboration. Thousands of drivers and riders help shape the RoadLine experience.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sobrenosotrosseccion">
+  <div class="contenido">
+    <h2>About Us</h2>
+    <div class="aboutus-contenido">
+      <div class="aboutus-texto">
+        <p>
+          We are a community committed to <strong>smart mobility</strong> and efficient resource use.
+          Our mission is to connect people through <strong>carpooling</strong>, reducing environmental impact and promoting a more sustainable future.
+        </p>
+        <p>
+          We believe in <strong>trust</strong>, <strong>innovation</strong>, and creating meaningful experiences for all our users. Every ride you take with us brings the world closer to a greener tomorrow.
+        </p>
+      </div>
+      <div class="aboutus-imagen">
+        <img src="carroprincipal.jpg" alt="Team working together for smart mobility" />
+      </div>
+    </div>
+  </div>
+</section>
+<section class="values-section">
+  <div class="values-header">
+    <h2>Our Core Values</h2>
+    <p>Guiding everything we do with integrity, creativity, and responsibility.</p>
+  </div>
+  
+  <div class="values-container">
+    <div class="value-card">
+      <div class="icon-container">
+        <i class="fas fa-handshake"></i>
+      </div>
+      <h3>Trust</h3>
+      <p>We foster trust in every interaction. Reliability and safety are our top priorities.</p>
+    </div>
+    <div class="value-card">
+      <div class="icon-container">
+        <i class="fas fa-lightbulb"></i>
+      </div>
+      <h3>Innovation</h3>
+      <p>We constantly look for smarter ways to connect people through car sharing technology.</p>
+    </div>
+    <div class="value-card">
+      <div class="icon-container">
+        <i class="fas fa-users"></i>
+      </div>
+      <h3>Community</h3>
+      <p>We believe in the power of shared experiences and a strong, supportive community.</p>
+    </div>
+    <div class="value-card">
+      <div class="icon-container">
+        <i class="fas fa-leaf"></i>
+      </div>
+      <h3>Sustainability</h3>
+      <p>We are committed to reducing environmental impact by maximizing vehicle usage.</p>
+    </div>
+  </div>
+</section>
+
+<section class="misionseccion">
+  <div class="mision-overlay">
+    
+    <div class="mision-textos">
+      <div class="bloque-transparente">
+        <span class="label">Mission</span>
+        <p>
+          Our mission is to offer reliable, flexible, and affordable car rental services,
+          providing our customers with comfortable and safe transportation.
+        </p>
+      </div>
+      <div class="bloque-transparente">
+        <span class="label">Vision</span>
+        <p>
+          Our vision is to become the leading car rental company, recognized for our innovation,
+          quality, and commitment to customer satisfaction.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="teamsection">
+  <div class="team-container">
+    <div class="team-imagen">
+      <img src="2.png" alt="Our team working together">
+    </div>
+    <div class="team-texto">
+      <h2>Meet Our Team</h2>
+      <p>
+        Behind every ride, there's a passionate team working to connect people, ideas, and journeys.
+        Learn more about who we are, how we work, and why we do what we do.
+      </p>
+      <a href="" class="boton-team">Meet the team</a>
+    </div>
+  </div>
+</section>
+
+<section class="teamsection2">
+  <div class="team-container2">
+    <div class="team-texto2">
+      <h2>Join the Team</h2>
+      <p>
+        Be part of a growing movement. If you're passionate about innovation, mobility, and community,
+        we want to hear from you.
+      </p>
+      <a href="team.html" class="boton2">Apply Now</a>
+    </div>
+    <div class="team-imagen2">
+      <img src="Untitled design (4).png" alt="Join the team">
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="logo2.0.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="iniciode_sesión.html">Login</a></li>
+                    <li><a href="carros.html">Services</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li><a href="meatteam.html">Our team</a></li>
+                    <li><a href="howorks.html">How roadline works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Becomeahost.html">Become a host</a></li>
+                    <li><a href="form.html">Car rental</a></li>
+                    <li><a href="arreglos.html">Gift cards</a></li>
+                    <li><a href="casaca.html">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="insurance.html">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="terms & concepts.html">Política de privacidad</a>
+                <a href="terms & concepts.html">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+      //Navbar
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+
+btn.addEventListener('click', () => {
+  btn.classList.toggle('open');
+  menu.classList.toggle('show');
+});
+
+// Cierra el menú si haces clic fuera de él
+document.addEventListener('click', function(event) {
+  if (!btn.contains(event.target) && !menu.contains(event.target)) {
+    btn.classList.remove('open');
+    menu.classList.remove('show');
+  }
+});
+
+  function toggleGallery() {
+    const gallery = document.getElementById('gallery');
+    gallery.classList.toggle('active');
+  }
+  flatpickr("#pickup-date", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today"
+  });
+
+  flatpickr("#return-date", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today"
+  });
+
+   const favBtn = document.getElementById('favBtn');
+  const favMsg = document.getElementById('favMsg');
+
+  favBtn.addEventListener('click', () => {
+    favMsg.style.display = 'block';
+    favMsg.classList.add('fadeInOut');
+
+    // Ocultar después de 2.5s
+    setTimeout(() => {
+      favMsg.style.display = 'none';
+    }, 2000);
+  });
+</script>
+
+<script src="//code.tidio.co/qzpqul1pvj4heu54gujuwuzphmx0xwu5.js" async></script>
+</body>
+</html>

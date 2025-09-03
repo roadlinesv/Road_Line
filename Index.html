@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roadline</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="cssindex/style.css">
+</head>
+<body>
+  <nav class="navbar">
+  <a href="Index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="Index.html">Inicio</a>
+    <a href="iniciode_sesión.html">Login</a>
+    <a href="AboutUs.html">Nosotros</a>
+   
+    <hr>
+
+    <!--APARTADOS QUE LE AGREGO AL MENÚ-->
+    <a href="carros.html">Buscador</a>
+    <a href="arreglos.html">Gifts cards</a>
+    <a href="Becomeahost.html">Become a host</a>
+    <a href="howorks.html">How road line works</a>       
+    <a href="#">Contact support</a> 
+    <a href="terms & concepts.html">terms and concepts</a> 
+     <a href="insurance.html">Insurance & protection</a> 
+  </div>
+</nav>
+  </div>
+</nav>
+
+  <section class="hero">
+    <div class="container">
+      <center>
+      <h1 class="display-4 fw-bold">Find the ideal car for every occasion</h1>
+      <p class="lead mb-4">Rent unique cars directly from local owners</p>
+      </center>
+    </div>
+  </section>
+  
+
+  <section class="header__form">
+    <form action="/">
+      <div class="input__group">
+        <label for="location">Pick up & Return location</label>
+        <input
+          type="text"
+          name="location"
+          id="location"
+          placeholder="El Salvador, Ilopango"
+          list="lista-departamentos"
+        />
+        <datalist id="lista-departamentos">
+          <option value="San Salvador">
+          <option value="La Libertad">
+          <option value="Santa Ana">
+          <option value="San Miguel">
+          <option value="Sonsonate">
+          <option value="Usulután">
+          <option value="Ilopango">
+          <option value="La Paz">
+        </datalist>
+      </div>
+
+            <div class="input__group">
+                <label for="start">Pick up date</label>
+                <input id="pickup-date" placeholder="Select pick-up date" />
+
+                 </div>
+            <div class="input__group">
+                <label for="stop">Return date</label>
+
+          <input id="return-date" placeholder="Select return date" />
+            </div>
+            <button class="btn"><a href="lupita.html" style="text-decoration: none; color: #fff;">Search </a> <i class="ri-search-line"></i></button>
+        </form>
+    </section>
+
+    <section class="section__container about__container" id="about">
+        <h2 class="section__header">What do we offer?</h2>
+        <p class="section__description">
+            We offer safe, flexible and affordable mobility solutions.
+        </p>
+        <div class="about__grid">
+            <div class="about__card">
+                <span><i class="ri-map-pin-2-fill"></i></span>
+                <h4>Delivery at the location of your choice.</h4>
+                <p>
+                   Select the vehicle pick-up and delivery location at your convenience.
+                </p>
+            </div>
+            <div class="about__card">
+                <span><i class="ri-calendar-event-fill"></i></span>
+                <h4>Flexibility in delivery dates</h4>
+                <p>
+                  Choose the date and time that best suits your schedule. We take care of the rest.
+                </p>
+            </div>
+            <div class="about__card">
+                <span><i class="ri-roadster-fill"></i></span>
+                <h4>Vehicles for every need</h4>
+                <p>
+                    We have a large fleet of modern and well maintained cars, ready to accompany you on your trip.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!--  recomendando Carros-->
+    <section class="cars-section">
+  <h1 class="section-title">Explore Our Available Cars</h1>
+
+  <div class="car-card">
+    <img src="img/carro1.0.jpg" alt="Mirage">
+    <div class="car-info">
+      <h3>Tesla Model 3</h3>
+      <div class="car-price">
+        <strong>$100</strong> <span>/Per Day</span>
+        <a href="#" class="rent-now">Rent Now →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-card">
+    <img src="img/carro2.0.jpg" alt="Xpander">
+    <div class="car-info">
+      <h3>Tesla Model S</h3>
+      <div class="car-price">
+        <strong>$125</strong> <span>/Per Day</span>
+        <a href="carro.html" class="rent-now">Rent Now →</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="car-card">
+    <img src="img/carro3.0.jpg" alt="Xpander">
+    <div class="car-info">
+      <h3>Tesla Roadster</h3>
+      <div class="car-price">
+        <strong>$150</strong> <span>/Per Day</span>
+        <a href="#" class="rent-now">Rent Now →</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="car-card">
+    <img src="img/carro 4.0.jpg" alt="Xpander">
+    <div class="car-info">
+      <h3>Mitsubishi Mirage G4</h3>
+      <ul class="car-details">
+      <div class="car-price">
+        <strong>$130</strong> <span>/Per Day</span>
+        <a href="#" class="rent-now">Rent Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ <!--Finaliza la recomendacion de carros-->
+    <section class="choose__container" id="choose">
+        <div class="choose__image">
+            <img src="img/service.png" alt="choose" />
+        </div>
+        <div class="choose__content">
+            <h2 class="section__header">Why choose us? </h2>
+            <p class="section__description">
+                We differentiate ourselves by offering a reliable service, affordable prices and personalized attention at every stage of the rental process.
+            </p>
+            <div class="choose__grid">
+                <div class="choose__card">
+                    <span><i class="ri-customer-service-line"></i></span>
+                    <div>
+                        <h4>24/7 technical support</h4>
+                        <p>Our team is available 24 hours a day, every day, to assist you with whatever you need.</p>
+                    </div>
+                </div>
+                <div class="choose__card">
+                    <span><i class="ri-map-pin-line"></i></span>
+                    <div>
+                        <h4>Multiple locations</h4>
+                        <p>
+                           We deliver and pick up vehicles at multiple points, adapting to your preferred location.
+                        </p>
+                    </div>
+                </div>
+                <div class="choose__card">
+                    <span><i class="ri-wallet-line"></i></span>
+                    <div>
+                        <h4>Affordable prices</h4>
+                        <p>Enjoy competitive rates without compromising service quality.</p>
+                    </div>
+                </div>
+                <div class="choose__card">
+                    <span><i class="ri-user-star-line"></i></span>
+                    <div>
+                        <h4>Clear requirements</h4>
+                        <p>
+                         You only need to be of legal age and have a valid license to rent with us.
+                        </p>
+                    </div>
+                </div>
+                <div class="choose__card">
+                    <span><i class="ri-verified-badge-line"></i></span>
+                    <div>
+                        <h4>Verified vehicles</h4>
+                        <p>We offer cars of different brands, checked and certified for your safety and comfort.</p>
+                    </div>
+                </div>
+                <div class="choose__card">
+                    <span><i class="ri-calendar-close-line"></i></span>
+                    <div>
+                        <h4>Free cancellation</h4>
+                        <p>You can cancel your reservation at no additional cost, with total peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe__container">
+        <div class="subscribe__image">
+            <img src="img/carro 1.png" alt="Carros sin fondo">
+        </div>
+        <div class="subscribe__content">
+            <h2 class="section__header">
+                Stay informed
+            </h2>
+            <p class="section__description">
+                Subscribe to receive notifications about updates, exclusive promotions, and news about our car rental services.
+            </p>
+            <!--Formulario de subscribirse-->
+             
+   <form id="formulario" class="bg-light p-4 rounded">
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Your Email" required />
+        </div>
+        <button type="submit" class="btn btn-success w-100">Subscribe</button>
+      </form>
+
+  <!-- Popup -->
+  <div class="overlay" id="popupOverlay">
+    <div class="popup">
+      <span class="close-btn" onclick="hidePopup()">&times;</span>
+     <h3>Welcome to our subscription!</h3>
+      <p>Click the button to start receiving notifications.</p>
+   <button id="nativeBtn">Accept</button>
+    </div>
+  </div>
+
+    </section>
+ <section class="client">
+      <div class="section__container client__container">
+       <center> <p class="section__subheader">Testimonials</p> </center>
+        <h2 class="section__header">What do our customers think about the subscription?</h2>
+        <!-- para poder poner las animaciones -->
+        <div class="swiper">
+          <!-- no me acuerdo para que era -->
+          <div class="swiper-wrapper">
+            <!-- comentarios -->
+            <div class="swiper-slide">
+              <div class="client__card">
+                <div class="client__details">
+                  <img src="img/Cliente1-sofia.jpg" alt="client" />
+                  <div>
+                    <h4>Sofia Delgado</h4>
+                  </div>
+                </div>
+                <p>
+                 If you are thinking of renting frequently, you better subscribe. It's cheaper, it's more convenient and you always have a car available.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="client__card">
+                <div class="client__details">
+                  <img src="img/clente2-hugo.jpg" alt="client" />
+                  <div>
+                    <h4>Hugo Rodriguez</h4>
+                  </div>
+                </div>
+                <p>
+                  Subscription is the best option if you don't want to commit to buying. I change cars according to my needs for the month. Highly recommended.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="client__card">
+                <div class="client__details">
+                  <img src="img/Cliente1-sofia.jpg" alt="client" />
+                  <div>
+                    <h4>Vannesa Gómez</h4>
+                  </div>
+                </div>
+                <p>
+                  For those of us who travel often, it's best to have a subscription. You don't have to coordinate rentals every time, it's all set when you arrive.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ <footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="imgworks/logo2.0.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="iniciode_sesión.html">Login</a></li>
+                    <li><a href="carros.html">Services</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li><a href="meatteam.html">Our team</a></li>
+                    <li><a href="howorks.html">How roadline works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Becomeahost.html">Become a host</a></li>
+                    <li><a href="form.html">Car rental</a></li>
+                    <li><a href="arreglos.html">Gift cards</a></li>
+                    <li><a href="casaca.html">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="insurance.html">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="terms & concepts.html">Política de privacidad</a>
+                <a href="terms & concepts.html">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js_index/inicio.js"></script>
+    <script src="js_index/inicio.js"></script>
+
+
+    <script src="//code.tidio.co/qzpqul1pvj4heu54gujuwuzphmx0xwu5.js" async></script>
+
+  </body>
+</html>

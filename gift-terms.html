@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <title>Gift Cards</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0;
+       background-color: #f7f7f7; 
+      }
+
+     h1, h2, h4{
+    font-family: 'freightDisp Pro Black','serif';
+}
+p{
+  font-family: 'basis grotesque', sans-serif;
+}
+h3{
+    font-weight: bold;
+}
+
+    /* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #273F4F;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-btn div {
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #e2dcdc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  display: none;
+  flex-direction: column;
+  width: 280px;
+  height: 500px;
+  z-index: 1;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #fe7743;
+}
+
+.show {
+  display: flex;
+}
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+    .container { 
+      max-width: 1200px;
+       margin: 40px auto; 
+       padding: 20px;
+       }
+
+    .main-layout { 
+      display: flex;
+      flex-wrap: wrap;
+       gap: 40px; 
+       align-items: flex-start;
+       }
+    .left {
+      flex: 2; 
+      background-color: #fff;
+       padding: 20px;
+      border-radius: 10px;
+       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .left h2 { 
+      margin-top: 0; 
+      color: #333;
+     }
+    .left p, .left ul { 
+      line-height: 1.6; 
+    }
+    .gift-section { 
+      margin-bottom: 30px; 
+    }
+    .gift-cards-grid { 
+      display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+       gap: 20px; 
+      }
+    .card {
+      border: 1px solid #ddd; 
+      border-radius: 10px;
+      padding: 15px;
+       background: #fff;
+      display: flex; 
+      flex-direction: column;
+       align-items: center;
+    }
+    .card img { 
+      max-width: 100%; 
+      height: auto; 
+      border-radius: 8px; }
+    .card h4 { 
+      margin: 10px 0;
+     }
+    .btn-buy {
+      background-color: #ff8800;
+       color: white;
+      border: none; 
+      padding: 10px 20px; 
+      border-radius: 6px;
+      cursor: pointer; 
+      text-decoration: none; 
+      margin-top: 10px;
+    }
+    .btn-buy:hover { 
+      background-color: #e07600; 
+    
+    }
+     
+.footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 60px 0 0 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #273F4F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon.facebook:hover {
+    background-color: #1877f2;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.twitter:hover {
+    background-color: #1da1f2;
+}
+
+.social-icon.youtube:hover {
+    background-color: #ff0000;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: #FE7743;
+    transition: width 0.3s ease;
+}
+
+.footer-section:hover h3::after {
+    width: 50px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #888;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-section ul li a::before {
+    content: '›';
+    margin-right: 8px;
+    color: #FE7743;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #FE7743;
+    padding-left: 10px;
+}
+
+.footer-section ul li a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.contact-info li i {
+    color: #FE7743;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #111111;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #273F4F;
+}
+
+/* Responsive del Footer */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-media {
+        justify-content: center;
+    }
+
+    .contact-info li {
+        justify-content: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.aside{
+  flex: 1 1 250px;
+}
+.sidebar {
+      flex: 1; 
+      background-color: #ffffff; 
+      padding: 20px;
+      border-radius: 10px; 
+      border: 1px solid #FE7743;
+      box-shadow: 0 0 10px rgba(255,165,0,0.1);
+      position: sticky; 
+      top: 20px;
+    }
+
+    .sidebar h3 { margin-top: 0; 
+        color: #FE7743; 
+    }
+    .sidebar ul { list-style: none;
+         padding: 0; 
+        }
+    .sidebar li { margin-bottom: 10px; 
+    }
+    .sidebar a {
+      text-decoration: none; 
+      color: #333; 
+      padding: 6px 10px;
+      display: block; 
+      border-radius: 5px;
+    }
+    .sidebar a:hover {
+         background-color: #EFEEEA; 
+        }
+    .sidebar a.active {
+      background-color: #ffcc80; 
+      font-weight: bold;
+       color: #FE7743;
+    }
+
+  </style>
+</head>
+<body>
+
+   <nav class="navbar">
+  <a href="Index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="Index.html">Inicio</a>
+    <a href="iniciode_sesión.html">Login</a>
+    <a href="AboutUs.html">Nosotros</a>
+   
+    <hr>
+
+    <!--APARTADOS QUE LE AGREGO AL MENÚ-->
+    <a href="carros.html">Buscador</a>
+    <a href="arreglos.html">Gifts cards</a>
+    <a href="Becomeahost.html">Become a host</a>
+    <a href="howorks.html">How road line works</a>       
+    <a href="#">Contact support</a> 
+    <a href="terms & concepts.html">terms and concepts</a> 
+     <a href="insurance.html">Insurance & protection</a> 
+  </div>
+</nav>
+
+  <div class="container main-layout">
+    <div class="left">
+      <h2>Gift Cards</h2>
+      <p>Looking for the perfect gift? Give the gift of travel with Roadline Gift Cards. Whether it's a birthday, graduation, or just because — a gift card gives your loved ones the freedom to choose their perfect ride.</p>
+
+          <div class="gift-section">
+            <h3>Available Cards</h3>
+            <div class="gift-cards-grid">
+              <div class="card">
+                <img src="img_giftcards/Gift Cards 1.png" alt="$25 Gift Card">
+                <h4>$50 Gift Card</h4>
+              </div>
+              <div class="card">
+                <img src="img_giftcards/Gift Cards 2.png" alt="$50 Gift Card">
+                <h4>$100 Gift Card</h4>
+              </div>
+              <div class="card">
+                <img src="img_giftcards/Gift Cards 3.png" alt="$100 Gift Card">
+                <h4>$200 Gift Card</h4>
+              </div>
+              <div class="card">
+                <img src="img_giftcards/Gift Cards 4.png" alt="$100 Gift Card">
+                <h4>$500 Gift Card</h4>
+              </div>
+            </div>
+          </div>
+      
+          <div class="gift-section">
+            <h3>Gift Card Terms</h3>
+            <p><strong>Last revised: December 12, 2022</strong></p>
+            <p>These Gift Card Terms govern your use of Roadline gift cards on the platform. By using Gift Cards, you agree to comply with these terms and our Terms of Service.</p>
+      
+            <h4>Redemption</h4>
+            <p>You must have a Roadline account to redeem a Gift Card. Upon redemption, the entire value is added to your account as travel credit, which can be used toward future bookings. If your total exceeds the balance, you’ll need a payment method on file to complete the difference.</p>
+            <p>No fees apply, and Gift Cards do not expire. However, balances may be reported to governing bodies based on local unclaimed property laws.</p>
+      
+            <h4>Limitations</h4>
+            <ul>
+              <li>Gift Cards can only be used and gifted within the U.S. (excluding territories).</li>
+              <li>They cannot be resold, reloaded, transferred for value, or redeemed for cash.</li>
+              <li>Once redeemed, they are non-transferable and tied to the original account.</li>
+            </ul>
+      
+            <h4>Risk of Loss</h4>
+            <p>Treat Gift Cards like cash. Once delivered digitally, the risk of loss or unauthorized use passes to the recipient. We are not responsible for lost, stolen, or misused cards.</p>
+      
+            <h4>Fraud</h4>
+            <p>We reserve the right to refuse or cancel Gift Cards if fraud is suspected. Accounts may be closed and alternative payment methods charged for fraudulent redemptions.</p>
+      
+            <h4>Limitation of Liability</h4>
+            <p>We make no warranties, express or implied, including fitness for a particular purpose. If a Gift Card is non-functional, your sole remedy is a replacement. Some limitations may not apply depending on your state laws.</p>
+      
+            <h4>Termination & Waiver</h4>
+            <p>Gift Card rights end if you violate terms or your account is suspended. Our failure to enforce these terms does not waive our right to do so later.</p>
+      
+            <h4>Disputes</h4>
+            <p>Any disputes related to Gift Cards are subject to the dispute resolution terms in our Terms of Service.</p>
+      
+            <h4>General Terms</h4>
+            <p>Gift Cards are issued by Roadline Inc. Use of gift cards is governed by the laws of California. We may update these terms at any time and will notify you by updating the revision date.</p>
+          </div>
+        </div>
+      
+      
+      
+      <aside class="sidebar">
+        <h3>Terms and policies</h3>
+        <ul>
+          <li><a href="terms-of-service.html">Terms of service</a></li>
+          <li><a href="terms & concepts.html">Cancellation policy</a></li>
+          <li><a href="privacity polici.html">Privacy policy</a></li>
+          <li><a href="community.htm">Community guidelines</a></li>
+          <li><a href="Nondiscrimination.html">Nondiscrimination policy</a></li>
+          <li><a href="additional.html">Additional policies</a></li>
+          <li><a href="travels-mutual.html">Roadline Travels Mutual</a></li>
+          <li><a href="gift-terms.html" class="active">Gift card terms</a></li>
+        </ul>
+      </aside>
+    </div>
+  
+ <footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="imgworks/logo2.0.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="iniciode_sesión.html">Login</a></li>
+                    <li><a href="carros.html">Services</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li><a href="meatteam.html">Our team</a></li>
+                    <li><a href="howorks.html">How roadline works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Becomeahost.html">Become a host</a></li>
+                    <li><a href="form.html">Car rental</a></li>
+                    <li><a href="arreglos.html">Gift cards</a></li>
+                    <li><a href="casaca.html">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="insurance.html">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="terms & concepts.html">Política de privacidad</a>
+                <a href="terms & concepts.html">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+<script src="https://unpkg.com/scrollreveal"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('open');
+      menu.classList.toggle('show');
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publicar Anuncio de Carro</title>
+  <link rel="stylesheet" href="subscripcion_css/subscripcion.css">
+</head>
+<body>
+
+ <nav class="navbar">
+  <a href="Index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="Index.html">Inicio</a>
+    <a href="iniciode_sesión.html">Login</a>
+    <a href="AboutUs.html">Nosotros</a>
+   
+    <hr>
+
+    <!--APARTADOS QUE LE AGREGO AL MENÚ-->
+    <a href="carros.html">Buscador</a>
+    <a href="arreglos.html">Gifts cards</a>
+    <a href="Becomeahost.html">Become a host</a>
+    <a href="howorks.html">How road line works</a>       
+    <a href="#">Contact support</a> 
+    <a href="terms & concepts.html">terms and concepts</a> 
+     <a href="insurance.html">Insurance & protection</a> 
+  </div>
+</nav>
+
+  <div class="contenedor">
+    <h1>Publicar Anuncio de Carro</h1>
+
+    <form>
+        <label for="imagen">Imagen del vehículo</label>
+      <input type="file" id="imagen" accept="image/*" required>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" rows="4" placeholder="Escribe los detalles del vehículo..." required></textarea >
+
+      <label for="marca">Marca:</label>
+      <input type="text" id="marca" placeholder="Ej. Toyota, Tesla" required>
+
+      <label for="modelo">Modelo:</label>
+      <input type="text" id="modelo" placeholder="Ej. Corolla, Model 3" required>
+
+      <label for="anio">Año:</label>
+      <input type="number" id="anio" min="1900" max="2025" required>
+
+      <label for="precio">Precio ($USD):</label>
+      <input type="number" id="precio" placeholder="Ej. 15000" required>
+
+       <button type="submit">Publicar Anuncio</button>
+    </form>
+  </div>
+  <footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="imgworks/logo2.0.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="iniciode_sesión.html">Login</a></li>
+                    <li><a href="carros.html">Services</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li><a href="meatteam.html">Our team</a></li>
+                    <li><a href="howorks.html">How roadline works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Becomeahost.html">Become a host</a></li>
+                    <li><a href="form.html">Car rental</a></li>
+                    <li><a href="arreglos.html">Gift cards</a></li>
+                    <li><a href="casaca.html">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="insurance.html">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="terms & concepts.html">Política de privacidad</a>
+                <a href="terms & concepts.html">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+  <script>
+    //Navbar
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+
+btn.addEventListener('click', () => {
+  btn.classList.toggle('open');
+  menu.classList.toggle('show');
+});
+
+// Cierra el menú si haces clic fuera de él
+document.addEventListener('click', function(event) {
+  if (!btn.contains(event.target) && !menu.contains(event.target)) {
+    btn.classList.remove('open');
+    menu.classList.remove('show');
+  }
+});
+  </script>
+</body>
+</html>
+<script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

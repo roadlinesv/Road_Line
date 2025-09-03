@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turo Clone - Premium Benefits</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Footerbecomeahots.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      
+
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        h1, h2, h4{
+    font-family: 'freightDisp Pro Black','serif';
+}
+p{
+  font-family: 'basis grotesque', sans-serif;
+}
+h3{
+    font-weight: bold;
+}
+
+    /* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #273F4F;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-btn div {
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #e2dcdc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  display: none;
+  flex-direction: column;
+  width: 280px;
+  height: 500px;
+  z-index: 1;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #fe7743;
+}
+
+.show {
+  display: flex;
+}
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03); /* Sutil sombra */
+            z-index: 10; /* Asegurar que esté por encima del contenido normal */
+            position: relative; /* Necesario para z-index */
+        }
+
+        .header .logo {
+            font-family: 'Playfair Display', serif; /* Más cercano al logo original */
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark-text);
+            letter-spacing: -0.5px; /* Ajuste para que se vea más compacto */
+        }
+
+        .header .search-bar {
+            flex-grow: 1;
+            margin: 0 40px;
+            max-width: 550px; /* Un poco más ancho */
+            position: relative;
+        }
+
+        .header .search-bar input {
+            width: 100%;
+            padding: 14px 18px 14px 50px; /* Más padding para el icono */
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 15px;
+            outline: none;
+            box-sizing: border-box;
+            background-color: #f9f9f9; /* Ligeramente grisáceo */
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .header .search-bar input:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(94, 63, 253, 0.1); /* Efecto de foco */
+        }
+
+        .header .search-bar input::placeholder {
+            color: #999;
+        }
+
+        .header .search-bar svg {
+            position: absolute;
+            left: 18px; /* Posición del icono */
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            width: 20px;
+            height: 20px;
+        }
+
+        .header .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px; /* Espacio entre elementos de navegación */
+        }
+
+        .header .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600; /* Un poco más de peso */
+            font-size: 15px;
+            white-space: nowrap;
+            transition: color 0.2s ease;
+        }
+
+        .header .nav-links a:hover {
+            color: var(--primary-purple); /* Cambio de color al pasar el ratón */
+        }
+
+        .header .nav-links .icon { /* Clase general para los SVGs */
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            color: var(--gray-text); /* Color por defecto */
+            transition: color 0.2s ease;
+        }
+
+        .header .nav-links .icon:hover {
+            color: var(--dark-text); /* Oscurecer al pasar el ratón */
+        }
+
+        /* Main Content Section */
+        .main-content-wrapper {
+            position: relative;
+            background-color: #fcfcfc;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 50px; /* Espacio extra al final de la sección principal */
+        }
+
+        .main-content-wrapper::before,
+        .main-content-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 300px; /* Ancho de la imagen o patrón en los lados */
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .main-content-wrapper::before {
+            left: 0;
+            background-image: url('https://via.placeholder.com/300x600/F0F0F0/FFFFFF?text=Pattern_Left');
+            background-position: left center;
+        }
+
+        .main-content-wrapper::after {
+            right: 0;
+            background-image: url('https://via.placeholder.com/300x600/F0F0F0/FFFFFF?text=Pattern_Right');
+            background-position: right center;
+        }
+
+        .main-content {
+            padding: 100px 40px 0; /* Ajuste de padding, ya que el wrapper tiene padding-bottom */
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .main-content .subtitle {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-text);
+            margin-bottom: 20px;
+        }
+
+        .main-content .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 68px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 50px;
+            color: var(--dark-text);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -1px;
+        }
+
+        .main-content .get-started-button {
+            background-color: var(--primary-purple);
+            color: var(--light-text);
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(94, 63, 253, 0.2);
+        }
+
+        .main-content .get-started-button:hover {
+            background-color:  #fe7743;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(94, 63, 253, 0.3);
+        }
+
+        .main-content .insurance-provider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--gray-text);
+        }
+
+        .main-content .insurance-provider span {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-content .insurance-provider .travelers-text {
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-right: 5px;
+        }
+
+        .main-content .insurance-provider .travelers-umbrella {
+            color: var(--travelers-red);
+            font-size: 26px;
+            line-height: 1;
+            transform: translateY(-1px);
+        }
+
+        /* --- Modal Login Styles (Se mantienen igual) --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #aaa;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-button:hover {
+            color: var(--dark-text);
+        }
+
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group select {
+            padding-right: 40px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            cursor: pointer;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(94, 63, 253, 0.1);
+        }
+
+        .form-group .country-select-wrapper {
+            position: relative;
+        }
+
+        .form-group .country-select-wrapper::before {
+            content: '+1 United States';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-text);
+            font-size: 16px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .form-group .country-select-wrapper select {
+            padding-left: 130px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 20px;
+        }
+
+        .form-group .info-text {
+            font-size: 13px;
+            color: var(--gray-text);
+            margin-top: 5px;
+            text-align: left;
+        }
+
+        .modal-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .modal-button.primary {
+            background-color: var(--primary-purple);
+            color: var(--light-text);
+            box-shadow: 0 4px 15px rgba(94, 63, 253, 0.2);
+        }
+
+        .modal-button.primary:hover {
+            background-color:  #fe7743;
+            box-shadow: 0 6px 20px rgba(94, 63, 253, 0.3);
+        }
+
+        .modal-divider {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #aaa;
+            position: relative;
+        }
+
+        .modal-divider::before,
+        .modal-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .modal-divider::before {
+            left: 0;
+        }
+
+        .modal-divider::after {
+            right: 0;
+        }
+
+        .modal-button.secondary {
+            background-color: transparent;
+            color: var(--dark-text);
+            border: 1px solid var(--border-color);
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: none;
+        }
+
+        .modal-button.secondary:hover {
+            background-color: #f5f5f5;
+            border-color: #c9c9c9;
+        }
+
+        .modal-button.secondary svg {
+            width: 20px;
+            height: 20px;
+            color: var(--dark-text);
+        }
+
+        /* --- New Sections Styles --- */
+        .section-container {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-container.bg-light {
+            background-color: var(--section-bg-light);
+        }
+
+        .section-container.bg-dark {
+            background-color: var(--section-bg-dark);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 60px;
+            line-height: 1.2;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .feature-item .icon-wrapper {
+            background-color: var(--primary-purple);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(94, 63, 253, 0.3);
+        }
+
+        .feature-item .icon-wrapper svg {
+            color: var(--light-text);
+            width: 30px;
+            height: 30px;
+        }
+
+        .feature-item h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            font-size: 16px;
+            color: var(--gray-text);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-purple);
+            color: var(--light-text);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            max-width: 800px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            font-weight: 500;
+            max-width: 700px;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .cta-section .get-started-button { /* Reutiliza el estilo del botón principal */
+            background-color: var(--light-text);
+            color: var(--primary-purple);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section .get-started-button:hover {
+            background-color: #e0e0e0;
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background-color: var(--bg-color);
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .testimonial-section .section-title {
+            margin-bottom: 80px;
+        }
+
+        .testimonial-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--section-bg-light);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-style: italic;
+            color: var(--dark-text);
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .testimonial-author img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-purple);
+            box-shadow: 0 0 0 5px rgba(94, 63, 253, 0.1);
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-info strong {
+            display: block;
+            font-size: 18px;
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .author-info span {
+            font-size: 15px;
+            color: var(--gray-text);
+        }
+
+      
+        @media (max-width: 1200px) {
+            .main-content-wrapper::before,
+            .main-content-wrapper::after {
+                width: 150px;
+            }
+            .section-title {
+                font-size: 42px;
+            }
+            .cta-section h2 {
+                font-size: 46px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header {
+                padding: 15px 30px;
+            }
+
+            .header .search-bar {
+                margin: 0 20px;
+                max-width: 400px;
+            }
+
+            .main-content-wrapper::before,
+            .main-content-wrapper::after {
+                width: 100px;
+                opacity: 0.03;
+            }
+
+            .main-content {
+                padding: 80px 30px 0;
+            }
+
+            .main-content .title {
+                font-size: 58px;
+                margin-bottom: 40px;
+            }
+
+            .section-container {
+                padding: 60px 30px;
+            }
+            .section-title {
+                font-size: 38px;
+                margin-bottom: 40px;
+            }
+            .cta-section h2 {
+                font-size: 40px;
+                margin-bottom: 25px;
+            }
+            .cta-section p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+            .testimonial-card {
+                padding: 40px;
+            }
+            .testimonial-quote {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .header .logo {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .header .search-bar {
+                margin: 10px 0;
+                width: 90%;
+            }
+
+            .header .nav-links {
+                width: 100%;
+                justify-content: space-around;
+                margin-top: 10px;
+            }
+
+            .main-content-wrapper::before,
+            .main-content-wrapper::after {
+                display: none;
+            }
+
+            .main-content {
+                padding: 60px 20px 0;
+            }
+
+            .main-content .title {
+                font-size: 44px;
+                margin-bottom: 30px;
+            }
+
+            .main-content .get-started-button {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+
+            .main-content .insurance-provider {
+                margin-top: 30px;
+                font-size: 14px;
+            }
+
+            .main-content .insurance-provider .travelers-umbrella {
+                font-size: 22px;
+            }
+
+            /* Modal en móviles */
+            .modal-content {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .modal-content h2 {
+                font-size: 28px;
+            }
+
+            /* New Sections Mobile */
+            .section-container {
+                padding: 40px 20px;
+            }
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr; /* Una columna en móviles */
+                gap: 30px;
+            }
+            .feature-item {
+                padding: 25px;
+            }
+            .feature-item .icon-wrapper {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 20px;
+            }
+            .feature-item .icon-wrapper svg {
+                width: 25px;
+                height: 25px;
+            }
+            .feature-item h3 {
+                font-size: 20px;
+            }
+            .feature-item p {
+                font-size: 15px;
+            }
+            .cta-section {
+                padding: 60px 20px;
+            }
+            .cta-section h2 {
+                font-size: 36px;
+            }
+            .cta-section p {
+                font-size: 16px;
+            }
+            .testimonial-section {
+                padding: 60px 20px;
+            }
+            .testimonial-section .section-title {
+                margin-bottom: 50px;
+            }
+            .testimonial-card {
+                padding: 30px;
+            }
+            .testimonial-quote {
+                font-size: 20px;
+            }
+            .testimonial-author img {
+                width: 60px;
+                height: 60px;
+            }
+            .author-info strong {
+                font-size: 16px;
+            }
+            .author-info span {
+                font-size: 13px;
+            }
+           
+        }
+
+        @media (max-width: 480px) {
+            .header .logo {
+                font-size: 24px;
+            }
+
+            .header .search-bar input {
+                padding: 12px 15px 12px 45px;
+                font-size: 14px;
+            }
+
+            .header .search-bar svg {
+                left: 15px;
+            }
+
+            .header .nav-links a {
+                font-size: 14px;
+            }
+
+            .main-content .subtitle {
+                font-size: 12px;
+                letter-spacing: 1.5px;
+            }
+
+            .main-content .title {
+                font-size: 36px;
+                line-height: 1.2;
+                margin-bottom: 25px;
+            }
+
+            .main-content .get-started-button {
+                padding: 12px 25px;
+                font-size: 15px;
+            }
+
+            .main-content .insurance-provider {
+                flex-direction: column;
+                gap: 5px;
+                font-size: 13px;
+            }
+
+            .modal-content {
+                max-width: 90%;
+            }
+
+            .modal-close-button {
+                font-size: 24px;
+                top: 10px;
+                right: 10px;
+            }
+
+            /* New Sections Mobile Small */
+            .section-title {
+                font-size: 28px;
+            }
+            .cta-section h2 {
+                font-size: 32px;
+            }
+            .testimonial-quote {
+                font-size: 18px;
+            }
+        }
+
+        
+  .footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 60px 0 0 0;
+    margin-top: 50px;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  
+  .footer-logo img {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo p {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #273F4F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    transform: translateY(-3px);
+  }
+  
+  .social-icon.facebook:hover {
+    background-color: #1877f2;
+  }
+  
+  .social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  }
+  
+  .social-icon.twitter:hover {
+    background-color: #1da1f2;
+  }
+  
+  .social-icon.youtube:hover {
+    background-color: #ff0000;
+  }
+  
+  .footer-section h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: #FE7743;
+    transition: width 0.3s ease;
+  }
+  
+  .footer-section:hover h3::after {
+    width: 50px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 12px;
+  }
+  
+  .footer-section ul li a {
+    color: #888;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .footer-section ul li a::before {
+    content: '›';
+    margin-right: 8px;
+    color: #FE7743;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #FE7743;
+    padding-left: 10px;
+  }
+  
+  .footer-section ul li a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .contact-info li {
+    display: flex;
+    align-items: center;
+    color: #888;
+    margin-bottom: 15px;
+  }
+  
+  .contact-info li i {
+    color: #FE7743;
+    margin-right: 10px;
+    width: 20px;
+  }
+  
+  .footer-bottom {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #111111;
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #273F4F;
+  }
+  
+  /* Responsive del Footer */
+  @media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+  
+    .footer-section {
+        text-align: center;
+    }
+  
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+  
+    .social-media {
+        justify-content: center;
+    }
+  
+    .contact-info li {
+        justify-content: center;
+    }
+  
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+  }
+  
+
+ 
+        /* Nuevas clases para centrar el contenido y controlar el ancho */
+.section-inner {
+    max-width: 900px; /* Ancho estándar para contenido centrado */
+    margin: 0 auto;
+    padding: 0 20px; /* Padding para evitar que el contenido toque los bordes */
+    box-sizing: border-box;
+}
+
+.section-inner.wide-inner {
+    max-width: 1100px; /* Un poco más ancho para secciones con elementos laterales */
+}
+
+/* Estilos para la sección "Our Unique Approach" */
+.approach-section {
+    background-color: var(--section-bg-light);
+    padding: 100px 0; /* Ajuste de padding vertical */
+}
+
+.approach-content {
+    flex: 1;
+    padding-right: 50px; /* Espacio entre el texto y la imagen */
+    text-align: left; /* Alineación de texto a la izquierda */
+}
+
+.approach-section .section-title {
+    font-size: 44px; /* Título un poco más grande */
+    margin-bottom: 30px;
+    text-align: left; /* Alinea el título a la izquierda */
+}
+
+.approach-section .large-paragraph {
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--dark-text);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.approach-section p {
+    font-size: 16px;
+    color: var(--gray-text);
+    line-height: 1.7;
+}
+
+.approach-image {
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+    width: 500px; /* Ancho fijo para la imagen */
+    max-width: 100%; /* Asegura que no desborde en móviles */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+    overflow: hidden; /* Asegura que la imagen se adapte al border-radius */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra sutil para la imagen */
+}
+
+.approach-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Flexbox para la disposición de contenido e imagen */
+.approach-section .section-inner {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    gap: 60px; /* Espacio entre contenido e imagen */
+}
+
+/* Responsive para la sección "Approach" */
+@media (max-width: 992px) {
+    .approach-section .section-inner {
+        flex-direction: column; /* Apila contenido e imagen */
+        text-align: center;
+        gap: 40px;
+    }
+    .approach-content {
+        padding-right: 0;
+        text-align: center; /* Centra el texto */
+    }
+    .approach-section .section-title {
+        font-size: 38px;
+        text-align: center;
+    }
+    .approach-image {
+        width: 100%; /* La imagen ocupa todo el ancho disponible */
+    }
+}
+
+@media (max-width: 768px) {
+    .approach-section {
+        padding: 80px 0;
+    }
+    .approach-section .section-title {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    .approach-section .large-paragraph {
+        font-size: 17px;
+    }
+    .approach-section p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .approach-section .section-title {
+        font-size: 28px;
+    }
+    .approach-section .large-paragraph {
+        font-size: 16px;
+    }
+}
+/* Estilos para la sección "Our Core Values" */
+.values-section {
+    background-color: var(--bg-color);
+    padding: 100px 0;
+}
+
+.values-section .large-paragraph {
+    margin-bottom: 80px; /* Más espacio entre el párrafo y el grid */
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.value-item {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.value-item:hover {
+    background-color: var(--section-bg-light);
+    transform: translateY(-5px);
+}
+
+.value-item svg {
+    width: 60px; /* Iconos más grandes */
+    height: 60px;
+    margin-bottom: 25px;
+    color: var(--primary-purple);
+}
+
+.value-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    font-size: 16px;
+    color: var(--gray-text);
+    line-height: 1.6;
+}
+
+/* Responsive para la sección "Values" */
+@media (max-width: 768px) {
+    .values-section {
+        padding: 80px 0;
+    }
+    .values-section .large-paragraph {
+        margin-bottom: 50px;
+    }
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .value-item svg {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+    .value-item h3 {
+        font-size: 20px;
+    }
+    .value-item p {
+        font-size: 15px;
+    }
+}
+/* Estilos para la sección "Hear From Our Community" */
+.community-feedback-section {
+    background-color: var(--section-bg-dark); /* Fondo oscuro o grisáceo */
+    padding: 100px 0;
+}
+
+.community-feedback-section .section-title {
+    margin-bottom: 60px;
+}
+
+.testimonials-carousel {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas */
+    gap: 40px; /* Espacio entre tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en pantallas pequeñas */
+}
+
+.testimonial-card-minimal {
+    background-color: var(--bg-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    max-width: 380px; /* Ancho máximo para cada tarjeta */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card-minimal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.testimonial-card-minimal img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 3px solid var(--primary-purple); /* Borde morado para avatares */
+    box-shadow: 0 0 0 5px rgba(94, 63, 253, 0.1);
+}
+
+.testimonial-card-minimal .testimonial-quote-minimal {
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Usar fuente del cuerpo para la cita */
+    font-size: 18px;
+    font-style: italic;
+    color: var(--dark-text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.testimonial-card-minimal .testimonial-author-minimal {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 5px;
+}
+
+.testimonial-card-minimal .testimonial-location {
+    display: block;
+    font-size: 14px;
+    color: var(--gray-text);
+}
+
+/* Estilos opcionales para navegación de carrusel si la implementas */
+.carousel-navigation {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.carousel-navigation .nav-button {
+    background-color: var(--primary-purple);
+    color: var(--light-text);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-navigation .nav-button:hover {
+    background-color: #fe7743;
+}
+
+/* Responsive para la sección "Community Feedback" */
+@media (max-width: 768px) {
+    .community-feedback-section {
+        padding: 80px 0;
+    }
+    .community-feedback-section .section-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+    .testimonials-carousel {
+        flex-direction: column; /* Apila las tarjetas en móviles */
+        align-items: center;
+        gap: 30px;
+    }
+    .testimonial-card-minimal {
+        max-width: 90%; /* Las tarjetas ocupan más ancho en móvil */
+        padding: 30px;
+    }
+    .testimonial-card-minimal img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 20px;
+    }
+    .testimonial-card-minimal .testimonial-quote-minimal {
+        font-size: 16px;
+    }
+    .testimonial-card-minimal .testimonial-author-minimal {
+        font-size: 15px;
+    }
+    .testimonial-card-minimal .testimonial-location {
+        font-size: 13px;
+    }
+}
+h1,h2,h3,span,div{
+    color: #273f4f;
+}
+
+    </style>
+</head>
+<body>
+
+  <nav class="navbar">
+  <a href="Index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="Index.html">Inicio</a>
+    <a href="iniciode_sesión.html">Login</a>
+    <a href="AboutUs.html">Nosotros</a>
+   
+    <hr>
+
+    <!--APARTADOS QUE LE AGREGO AL MENÚ-->
+    <a href="carros.html">Buscador</a>
+    <a href="arreglos.html">Gifts cards</a>
+    <a href="Becomeahost.html">Become a host</a>
+    <a href="howorks.html">How road line works</a>       
+    <a href="#">Contact support</a> 
+    <a href="terms & concepts.html">terms and concepts</a> 
+     <a href="insurance.html">Insurance & protection</a> 
+  </div>
+</nav>
+
+    <div class="main-content-wrapper" >
+        <main class="main-content">
+            <div class="subtitle">Your ride, your way</div>
+            <h1 class="title">Start your premium services on Roadline</h1>
+            <a href="pago.html" class="get-started-button"  style="background-color: #fe7743; color: #f5f5f5;">Get started</a>
+            <div class="insurance-provider">
+                <span>INSURANCE PROVIDER</span>
+                <span class="travelers-text">TRAVELERS</span>
+                <span class="travelers-umbrella">&#9730;</span>
+            </div>
+        </main>
+    </div>
+
+    <section class="section-container bg-light">
+        <h2 class="section-title">Unlock Premium Benefits with a Membership</h2>
+        <p style="font-size: 18px; max-width: 800px; margin: 0 auto 60px; color: var(--gray-text);">Join our exclusive community and transform your experience. Our premium plans offer unparalleled advantages designed for maximum convenience and savings.</p>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"style="color:  #fe7743;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Priority Access & Exclusive Deals</h3>
+                <p>Gain early access to newly listed vehicles and exclusive discounts available only to premium members. Never miss out on your perfect car again!</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="color:  #fe7743;"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4V8h16v10zm-12-7h8v2h-8v-2z"/></svg>
+                </div>
+                <h3>Enhanced Insurance Coverage</h3>
+                <p>Travel with peace of mind. Our premium plans include superior insurance options with lower deductibles and broader protection for your trips.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="color:  #fe7743;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+                <h3>Dedicated Support Channel</h3>
+                <p>Experience faster and more personalized assistance with our dedicated customer support line, available 24/7 for all your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr> <section class="testimonial-section">
+        <h2 class="section-title">What Our Premium Members Say</h2>
+        <div class="testimonial-card">
+            <p class="testimonial-quote">"Joining RoadLine's premium plan was the best decision! The priority access to cars is amazing, and the enhanced insurance gives me total peace of mind on every trip. Highly recommend!"</p>
+            <div class="testimonial-author">
+                <img src="Ann_becomeahost/profile.jfif" alt="Profile Picture of Jane Doe"> <div class="author-info">
+                    <strong>Jane Doe</strong>
+                    <span>Frequent Traveler, New York</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr> <section class="cta-section" style="background-color: #273f4f;">
+        <h2 style="color: #f5f5f5;">Ready to Elevate Your RoadLine Experience?</h2>
+        <p style="color: #f5f5f5;">Don't miss out on these exclusive benefits. Sign up for a premium membership today and start enjoying a seamless, worry-free car-sharing journey.</p>
+    </section>
+
+<section class="minimal-section approach-section bg-light">
+    <div class="section-inner wide-inner">
+        <div class="approach-content">
+            <h2 class="section-title">Our Unique Approach to Premium Sharing</h2>
+            <p class="large-paragraph">We redefine car sharing with a focus on exclusivity, safety, and unparalleled convenience for our premium members. Every detail is meticulously crafted to ensure a seamless experience, from our curated vehicle selection to our dedicated support. We're not just about cars; we're about a premium lifestyle.</p>
+            <p>Our commitment to excellence means you get more than just a ride – you get peace of mind, flexibility, and access to a community built on trust and quality. Discover the difference a premium membership makes.</p>
+            </div>
+        <div class="approach-image">
+            <img src="Ann_becomeahost/pexels-egeardaphotos-2148533277-30652583.jpg" alt="Premium Experience" loading="lazy">
+            </div>
+    </div>
+</section>
+<section class="minimal-section values-section">
+    <div class="section-inner">
+        <h2 class="section-title centered">Values That Drive Our Premium Service</h2>
+        <p class="large-paragraph centered">Our commitment to excellence is reflected in every aspect of our premium offering, guided by principles that ensure your satisfaction and trust.</p>
+        <div class="values-grid">
+            <div class="value-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="color: #fe7743;">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                <h3>Quality</h3>
+                <p>Curated selection of premium vehicles, meticulously maintained for your safety and comfort.</p>
+            </div>
+            <div class="value-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="color: #fe7743;">
+                    <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+                </svg>
+                <h3>Transparency</h3>
+                <p>Clear pricing, no hidden fees, and honest communication about every aspect of your booking.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="minimal-section community-feedback-section bg-dark">
+    <div class="section-inner">
+        <h2 class="section-title centered">Hear From Our Satisfied Premium Members</h2>
+        <div class="testimonials-carousel">
+            <div class="testimonial-card-minimal">
+                <img src="Ann_becomeahost/profile2.jfif" alt="Avatar of John D." loading="lazy">
+                <p class="testimonial-quote-minimal">"The premium plan changed how I travel. Priority access to amazing cars and the enhanced insurance truly make every trip worry-free. Highly recommended for frequent users!"</p>
+                <span class="testimonial-author-minimal">John D.</span>
+                <span class="testimonial-location">San Francisco, CA</span>
+            </div>
+            <div class="testimonial-card-minimal">
+                <img src="Ann_becomeahost/profile.jfif" alt="Avatar of Anna S." loading="lazy">
+                <p class="testimonial-quote-minimal">"The dedicated support team is incredible. I had a minor issue once, and they resolved it within minutes. The flexibility for cancellations is also a huge plus for my busy schedule."</p>
+                <span class="testimonial-author-minimal">Anna S.</span>
+                <span class="testimonial-location">Austin, TX</span>
+            </div>
+             <div class="testimonial-card-minimal">
+                <img src="Ann_becomeahost/profile3.jfif" alt="Avatar of Maria G." loading="lazy">
+                <p class="testimonial-quote-minimal">"Finding the perfect car used to be a hassle. With premium, I always get first pick of the newest listings. It's like having a personal concierge for my car rentals. Fantastic value!"</p>
+                <span class="testimonial-author-minimal">Maria G.</span>
+                <span class="testimonial-location">Miami, FL</span>
+            </div>
+        </div>
+        </div>
+</section>
+    <footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="imgworks/logo2.0.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="iniciode_sesión.html">Login</a></li>
+                    <li><a href="carros.html">Services</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li><a href="meatteam.html">Our team</a></li>
+                    <li><a href="howorks.html">How roadline works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Becomeahost.html">Become a host</a></li>
+                    <li><a href="form.html">Car rental</a></li>
+                    <li><a href="arreglos.html">Gift cards</a></li>
+                    <li><a href="casaca.html">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="insurance.html">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="terms & concepts.html">Política de privacidad</a>
+                <a href="terms & concepts.html">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="Js.js"></script>
+    <script>
+     
+      //Navbar
+const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+
+btn.addEventListener('click', () => {
+  btn.classList.toggle('open');
+  menu.classList.toggle('show');
+});
+
+// Cierra el menú si haces clic fuera de él
+document.addEventListener('click', function(event) {
+  if (!btn.contains(event.target) && !menu.contains(event.target)) {
+    btn.classList.remove('open');
+    menu.classList.remove('show');
+  }
+});
+      
+        const openLoginModalBtn = document.getElementById('openLoginModal');
+        const openLoginModalBottomBtn = document.getElementById('openLoginModalBottom'); 
+        const loginModal = document.getElementById('loginModal');
+        const closeLoginModalBtn = document.getElementById('closeLoginModal');
+        const countryCodeSelect = document.getElementById('countryCode');
+
+        
+        function openModal() {
+            loginModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+    
+        function closeModal() {
+            loginModal.classList.remove('show');
+            document.body.style.overflow = ''; 
+        }
+
+      
+        openLoginModalBtn.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            openModal();
+        });
+
+      
+        openLoginModalBottomBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            openModal();
+        });
+
+        closeLoginModalBtn.addEventListener('click', closeModal);
+
+        
+        loginModal.addEventListener('click', function(event) {
+            if (event.target === loginModal) {
+                closeModal();
+            }
+        });
+    </script>
+
+
+<script src="//code.tidio.co/qzpqul1pvj4heu54gujuwuzphmx0xwu5.js" async></script>
+
+</body>
+</html>

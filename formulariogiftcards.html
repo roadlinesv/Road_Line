@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css_giftcards/formulariogiftcards.css">
+    <title>Road Line | Gift Cards</title>
+</head>
+<body>
+
+     <nav class="navbar">
+  <a href="Index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="Index.html">Inicio</a>
+    <a href="iniciode_sesión.html">Login</a>
+    <a href="AboutUs.html">Nosotros</a>
+   
+    <hr>
+
+    <!--APARTADOS QUE LE AGREGO AL MENÚ-->
+    <a href="carros.html">Buscador</a>
+    <a href="arreglos.html">Gifts cards</a>
+    <a href="Becomeahost.html">Become a host</a>
+    <a href="howorks.html">How road line works</a>       
+    <a href="#">Contact support</a> 
+    <a href="terms & concepts.html">terms and concepts</a> 
+     <a href="insurance.html">Insurance & protection</a> 
+  </div>
+</nav>
+
+    <div class="main-container">
+
+        <div class="left-section">
+            <h1>Confirm & pay</h1>
+            <h3>Payment</h3>
+            
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="billingAddress">Billing address</label>
+                    <input type="text" class="form-control" id="billingAddress" name="billingAddress" placeholder="" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <select id="state" name="state" class="form-control" required>
+                            <option value="">Select your state</option>
+                            <option value="state1">San Salvador</option>
+                            <option value="state2">Cuscatlán</option>
+                            <option value="state3">Cabañas</option>
+                            <option value="state4">Sonsonate</option>
+                            <option value="state5">Ahuachapan</option>
+                            <option value="state6">La Libertad</option>
+                            <option value="state7">Chalatenango</option>
+                            <option value="state8">San Miguel</option>
+                            <option value="state9">La Unión</option>
+                            <option value="state10">La Paz</option>
+                            <option value="state11">Santa Ana</option>
+                            <option value="state12">Morazán</option>
+                            <option value="state13">San Vicente</option>
+                            <option value="state14">Usulután</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zipCode">Zip code</label>
+                        <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardholderName">Cardholder name</label>
+                    <input type="text" class="form-control" id="cardholderName" name="cardholderName" placeholder="" required>
+                </div>
+                
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">
+                        <strong>I accept the <strong id="purple">Card Terms and Conditions, Terms of Use, and Privacy Policy</strong>.</strong>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary"><strong>Buy Now</strong></button>
+            </form>
+        </div>
+
+        <div class="right-section">
+            <div class="gift-card-summary">
+                <img id="giftCardPreview" src="" alt="Gift Card">
+                <div class="card-info">
+                    <p><strong><span id="nombreDestinatario"></span></strong></p>
+                    <p><span id="contactoDestinatario"></span></p>
+                    <p>Enviado por: <span id="nombreComprador"></span></p>
+                    <p>Send on: <span id="fechaEnvio"></span></p>
+                    <p id="giftCardAmount">Amount: $100.00</p>
+                    <p id="mensajePersonalizado">Mensaje:</p>
+                    <div class="buttons">
+                        <a href="buygiftcard.html"><button>Edit</button></a>
+                        <a href="buygiftcard.html"><button>Remove</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-section">
+                <h3>Total: <span id="totalAmount"></span></h3>
+                <a href="buygiftcard.html" class="add-card-link">Add another gift card</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const imagen = localStorage.getItem("giftCardImagen");
+            const monto = localStorage.getItem("giftCardMonto");
+            const nombreDestinatario = localStorage.getItem("nombreDestinatario");
+            const contactoDestinatario = localStorage.getItem("contactoDestinatario");
+            const mensajePersonalizado = localStorage.getItem("mensajePersonalizado");
+            const nombreComprador = localStorage.getItem("nombreComprador");
+            const fechaEnvio = localStorage.getItem("fechaEnvio");
+
+            if (imagen) {
+                document.getElementById("giftCardPreview").src = imagen;
+            }
+            if (monto) {
+                document.getElementById("giftCardAmount").textContent = "Amount: $" + monto + ".00";
+                document.getElementById("totalAmount").textContent = "$" + monto + ".00";
+            }
+            if (nombreDestinatario) {
+                document.getElementById("nombreDestinatario").textContent = nombreDestinatario;
+            }
+            if (contactoDestinatario) {
+                document.getElementById("contactoDestinatario").textContent = contactoDestinatario;
+            }
+            if (mensajePersonalizado) {
+                document.getElementById("mensajePersonalizado").textContent = "Mensaje: " + mensajePersonalizado;
+            }
+            if (nombreComprador) {
+                document.getElementById("nombreComprador").textContent = nombreComprador;
+            }
+            if (fechaEnvio) {
+                document.getElementById("fechaEnvio").textContent = fechaEnvio;
+            }
+        });
+    </script>
+  <footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="imgworks/logo2.0.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="iniciode_sesión.html">Login</a></li>
+                    <li><a href="carros.html">Services</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li><a href="meatteam.html">Our team</a></li>
+                    <li><a href="howorks.html">How roadline works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Becomeahost.html">Become a host</a></li>
+                    <li><a href="form.html">Car rental</a></li>
+                    <li><a href="arreglos.html">Gift cards</a></li>
+                    <li><a href="casaca.html">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="insurance.html">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="terms & concepts.html">Política de privacidad</a>
+                <a href="terms & concepts.html">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

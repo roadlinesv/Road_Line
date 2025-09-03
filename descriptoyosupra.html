@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="CSS_Gene/descripchevroletex.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <title>Reserva Toyota Supra MK4 - Estilo Personalizado</title>
+
+  <style>
+    h1, h2, h4{
+    font-family: 'freightDisp Pro Black','serif';
+}
+p{
+  font-family: 'basis grotesque', sans-serif;
+}
+h3{
+    font-weight: bold;
+}
+
+    /* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #273F4F;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-btn div {
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #e2dcdc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  display: none;
+  flex-direction: column;
+  width: 280px;
+  height: 500px;
+  z-index: 1;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #fe7743;
+}
+
+.show {
+  display: flex;
+}
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+    /* Estilos para el apartado de sillas bebé */
+    .baby-seats {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.05);
+      margin: 20px 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .baby-seats label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+      color: #374151; /* gris oscuro */
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      position: relative;
+    }
+
+    .baby-seats label:hover {
+      background-color: #ffe9d1; /* suave naranja claro */
+    }
+
+    .baby-seats input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #fe7743; /* color naranja principal */
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .baby-seats label::before {
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: #fe7743;
+      font-size: 1.3rem;
+      margin-right: 10px;
+      content: "\f77c"; /* icono silla bebé */
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .baby-seats label input[type="checkbox"] {
+      margin-left: 30px;
+    }
+
+    /* Ajuste para la columna derecha */
+    .right {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgb(0 0 0 / 0.1);
+      max-width: 380px;
+      margin: auto;
+    }
+
+    .price,
+    .old-price {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      color: #fe7743;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      font-weight: 500;
+      color: #777;
+      font-size: 1.2rem;
+    }
+
+    .savings {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #2e7d32;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 15px;
+      display: block;
+      color: #444;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="datetime-local"] {
+      width: 100%;
+      padding: 8px 12px;
+      margin-top: 5px;
+      border: 1.8px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    input[type="datetime-local"]:focus {
+      border-color: #fe7743;
+      outline: none;
+    }
+
+    .btn-continue {
+      width: 100%;
+      margin-top: 25px;
+      background-color: #fe7743;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      padding: 12px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-continue:hover {
+      background-color: #e7672e;
+    }
+
+    #favMsg {
+      display: none;
+      margin-top: 10px;
+      color: #fe7743;
+      font-weight: 700;
+      animation: fadeInOut 2s forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+ <nav class="navbar">
+  <a href="Index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="Index.html">Inicio</a>
+    <a href="iniciode_sesión.html">Login</a>
+    <a href="AboutUs.html">Nosotros</a>
+   
+    <hr>
+
+    <!--APARTADOS QUE LE AGREGO AL MENÚ-->
+    <a href="carros.html">Buscador</a>
+    <a href="arreglos.html">Gifts cards</a>
+    <a href="Becomeahost.html">Become a host</a>
+    <a href="howorks.html">How road line works</a>       
+    <a href="#">Contact support</a> 
+    <a href="terms & concepts.html">terms and concepts</a> 
+     <a href="insurance.html">Insurance & protection</a> 
+  </div>
+</nav>
+  
+<div class="collage-container">
+  <div class="collage">
+    <div class="img-principal">
+      <img src="IMGene/Toytasupragene.jpeg" alt="Toyota Supra MK4 principal">
+    </div>
+    <div>
+      <img src="IMGene/Toytasupragene.jpeg" alt="Toyota Supra MK4 frontal">
+    </div>
+    <div>
+      <img src="IMGene/Toytasupragene.jpeg" alt="Toyota Supra MK4 lateral">
+    </div>
+  </div>
+</div>
+
+<div class="container" style="display:flex; justify-content:center; gap: 40px; max-width:1100px; margin: 30px auto; flex-wrap: wrap;">
+  <div class="left" style="flex:2; min-width: 320px;">
+    <h1>Toyota Supra MK4 - 1998</h1>
+    <div class="subhead">Legendary · 4.9 ★ (132 reviews)</div>
+    <div class="tags">
+      <div class="tag">2 seats</div>
+      <div class="tag">Gasoline</div>
+      <div class="tag">280 hp</div>
+      <div class="tag">Manual transmission</div>
+    </div>
+
+    <div class="host">
+      <img src="IMGene/perfilmujergene.jpg" alt="Host">
+      <div>
+        <strong>Karen</strong><br>
+        861 trips · Joined Feb 2021<br>
+        <span class="badge">All-Star Host</span>
+      </div>
+    </div>
+
+    <div class="section-title">Classic Sports Car</div>
+    <div class="description">The Toyota Supra MK4 is a timeless icon revered by car enthusiasts worldwide. Known for its powerful inline-6 engine, sleek design, and exceptional tuning potential, it delivers a pure driving experience that combines speed, agility, and style.</div>
+
+    <div class="section-title">Description</div>
+    <div class="description">
+      Experience the thrill of the 90s with the legendary Toyota Supra MK4 — a gasoline-powered sports coupe with 280 horsepower, rear-wheel drive, and manual transmission. Perfect for those who appreciate classic performance and precision handling.
+    </div>
+
+    <div class="section-title">Vehicle Features</div>
+    <div class="features">
+      <ul>
+        <li>3.0L Inline-6 Turbocharged Engine (2JZ-GTE)</li>
+        <li>6-Speed Manual Transmission</li>
+        <li>Rear-Wheel Drive (RWD)</li>
+        <li>Sport-tuned Suspension</li>
+        <li>Iconic aerodynamic body design</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Included in the price</div>
+    <div class="included">
+      <ul>
+        <li>Cleaning fee (no hidden charges)</li>
+        <li>Basic insurance coverage</li>
+        <li>Roadside assistance</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Extras</div>
+    <div class="extras">
+      <ul>
+        <li>Child seat (upon request)</li>
+        <li>Additional driver option</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Cancellation policy</div>
+    <div class="extras">
+      <ul>
+        <li>Free cancellation</li>
+        <li>Full refund before Jun 19, 10:00 AM</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Payment options</div>
+    <div class="extras">
+      <ul>
+        <li>$0 due now</li>
+        <li>Choose to pay later at checkout, and we'll charge your payment method on Wed, Jun 19.</li>
+      </ul>
+    </div>
+
+    <div class="section-title">Distance included</div>
+    <div class="extras">
+      <ul>
+        <li>200 mi</li>
+        <li>$3.00/mi fee for additional miles driven</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="price" id="price-total">$0 total</div>
+
+
+    <label for="pickup-date">Start date</label>
+    <input id="pickup-date" placeholder="Select pick-up date" />
+
+    <label for="return-date">End date</label>
+    <input id="return-date" placeholder="Select return date" />
+
+    <div class="input__group">
+      <label for="location">Pick up & Return location</label>
+      <input
+        type="text"
+        name="location"
+        id="location"
+        placeholder="El Salvador, La Paz"
+        list="lista-departamentos"
+      />
+      <datalist id="lista-departamentos">
+        <option value="San Salvador"></option>
+        <option value="La Libertad"></option>
+        <option value="Santa Ana"></option>
+        <option value="San Miguel"></option>
+        <option value="Sonsonate"></option>
+        <option value="Usulután"></option>
+        <option value="Ilopango"></option>
+        <option value="La Paz"></option>
+      </datalist>
+    </div>
+
+    <!-- Apartado sillas bebé -->
+    <div class="baby-seats">
+      <label><input type="checkbox" id="seat-1year" /> Bebé 1 año (+$10 por día)</label>
+      <label><input type="checkbox" id="seat-2to3years" /> Bebé 2-3 años (+$15 por día)</label>
+    </div>
+
+    <a href="form.html" style="text-decoration: none; color: beige;">
+      <button class="btn-continue">Continue</button>
+    </a>
+
+    <div class="trip-section">
+      <div class="trip-title">Insurance & Protection</div>
+      <div class="gray-text">🛡️ Insurance via Travelers</div>
+    </div>
+
+    <button id="favBtn" class="fav-btn">
+      ❤️ Add to favorites
+    </button>
+
+    <div id="favMsg" class="fav-msg">Added to favorites</div>
+
+    <div class="icon-row">
+      <div class="icon">🔗</div>
+      <div class="icon">📤</div>
+      <div class="icon">📄</div>
+    </div>
+
+    <div class="link">Report listing</div>
+    <div class="link">Cancellation policy</div>
+  </div>
+</div>
+
+<footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="imgworks/logo2.0.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="iniciode_sesión.html">Login</a></li>
+                    <li><a href="carros.html">Services</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li><a href="meatteam.html">Our team</a></li>
+                    <li><a href="howorks.html">How roadline works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Becomeahost.html">Become a host</a></li>
+                    <li><a href="form.html">Car rental</a></li>
+                    <li><a href="arreglos.html">Gift cards</a></li>
+                    <li><a href="casaca.html">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="insurance.html">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="terms & concepts.html">Política de privacidad</a>
+                <a href="terms & concepts.html">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  // Navbar toggle
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('show');
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!btn.contains(event.target) && !menu.contains(event.target)) {
+      btn.classList.remove('open');
+      menu.classList.remove('show');
+    }
+  });
+
+  // Inicializa flatpickr
+  flatpickr("#pickup-date", {
+    enableTime: false,
+    dateFormat: "Y-m-d",
+    minDate: "today",
+    onChange: calculatePrice
+  });
+
+  flatpickr("#return-date", {
+    enableTime: false,
+    dateFormat: "Y-m-d",
+    minDate: "today",
+    onChange: calculatePrice
+  });
+
+  const seat1Year = document.getElementById('seat-1year');
+  const seat2to3Years = document.getElementById('seat-2to3years');
+  seat1Year.addEventListener('change', calculatePrice);
+  seat2to3Years.addEventListener('change', calculatePrice);
+
+  function calculatePrice() {
+    const basePricePerDay = 100;
+    const seat1PricePerDay = 10;
+    const seat2to3PricePerDay = 15;
+
+    const pickupVal = document.getElementById('pickup-date').value;
+    const returnVal = document.getElementById('return-date').value;
+    const priceTotalEl = document.getElementById('price-total');
+    const discountMsgEl = document.getElementById('discount-msg');
+    const oldPriceEl = document.getElementById('old-price');
+
+    if (!pickupVal || !returnVal) {
+      priceTotalEl.textContent = "$0 total";
+      discountMsgEl.textContent = "";
+      return;
+    }
+
+    const pickupDate = new Date(pickupVal);
+    const returnDate = new Date(returnVal);
+
+    if (returnDate <= pickupDate) {
+      priceTotalEl.textContent = "Fecha inválida";
+      discountMsgEl.textContent = "";
+      return;
+    }
+
+    // Calcular días de renta (diferencia en días)
+    const diffTime = returnDate - pickupDate;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    // Precio base sin extras
+    let baseCost = basePricePerDay * diffDays;
+
+    // Extras silla bebé
+    let extraCost = 0;
+    if (seat1Year.checked) extraCost += seat1PricePerDay * diffDays;
+    if (seat2to3Years.checked) extraCost += seat2to3PricePerDay * diffDays;
+
+    let totalPrice = baseCost + extraCost;
+    let discountApplied = false;
+
+    // Descuento 10% si más de 4 días
+    if (diffDays > 4) {
+      totalPrice *= 0.9;
+      discountApplied = true;
+    }
+
+    priceTotalEl.textContent = `$${totalPrice.toFixed(2)} total`;
+
+    if (discountApplied) {
+      discountMsgEl.textContent = `Descuento del 10% aplicado por alquilar ${diffDays} días`;
+      discountMsgEl.style.color = "#2e7d32";
+    } else {
+      discountMsgEl.textContent = "";
+    }
+  }
+
+  // Botón favoritos
+  const favBtn = document.getElementById('favBtn');
+  const favMsg = document.getElementById('favMsg');
+
+  favBtn.addEventListener('click', () => {
+    favMsg.style.display = 'block';
+    favMsg.classList.add('fadeInOut');
+
+    setTimeout(() => {
+      favMsg.style.display = 'none';
+      favMsg.classList.remove('fadeInOut');
+    }, 2000);
+  });
+</script>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js_busq/buscador.js"></script>
+
+</body>
+</html>

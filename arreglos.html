@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift cards</title>
+</head>
+
+<style>
+
+  body {
+  margin: 0;
+  background-color: #EFEEEA;
+  font-family: 'Segoe UI', sans-serif;
+  color: #273F4F;
+  overflow-x: hidden;
+}
+
+h1, h2, h4{
+    font-family: 'freightDisp Pro Black','serif';
+}
+p{
+  font-family: 'basis grotesque', sans-serif;
+}
+h3{
+    font-weight: bold;
+}
+
+    /* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #273F4F;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-btn div {
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #e2dcdc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  display: none;
+  flex-direction: column;
+  width: 280px;
+  height: 500px;
+  z-index: 1;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #fe7743;
+}
+
+.show {
+  display: flex;
+}
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+.about-section {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: #333;
+}
+
+.hero-section {
+background: #dbdad5;
+background-size: cover;
+background-position: center;
+text-align: left;
+display: flex;
+justify-content: center;
+width: 100%;
+}
+
+.hero-section-text{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.contenedor-botones{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.boton1, .boton2{
+padding: 14px 34px;     
+font-size: 1rem;       
+border-radius: 5px;       
+font-weight: bold;       
+cursor: pointer;
+}
+
+.boton1{
+background-color: #FE7743;
+color: #EFEEEA;
+border: 1px solid #FE7743;
+}
+
+.boton2{
+background-color: transparent;
+color: #FE7743;
+border: 1px;
+}
+
+.img-blanco-carro{
+  max-width: 600px;
+  min-width: 340px;
+  margin-bottom: 5px;
+}
+
+.hero-title {
+  text-align: left;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  text-align: left;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media only screen and (max-width: 720px){
+  .img-blanco-carro{
+    display: none;
+  }
+}
+
+
+.turo-section {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1.5rem; /* Antes era 3rem */
+padding: 2rem 3rem;
+flex-wrap: wrap;
+}
+
+.image-cards {
+display: flex;
+gap: 1.5rem;
+flex-wrap: wrap;
+}
+
+.card {
+position: relative;
+width: 220px;
+height: 140px;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.logo {
+position: absolute;
+bottom: 10px;
+left: 10px;
+background: black;
+color: white;
+padding: 4px 10px;
+border-radius: 5px;
+font-weight: bold;
+font-family: sans-serif;
+}
+
+.card-text {
+max-width: 300px;
+}
+
+.card-text h2 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+font-weight: bold;
+}
+
+.card-text button {
+ font-weight: bold;
+background-color: #FE7743;
+color: white;
+border: none;
+padding: 0.8rem 1.2rem;
+border-radius: 8px;
+font-size: 1rem;
+cursor: pointer;
+transition: background 0.3s ease;
+}
+
+.card-text button:hover {
+background-color: #e75f29;
+}
+
+.team-section {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: #f8fafc;
+  border-radius: 15px;
+}
+
+.team-section {
+text-align: center;
+padding: 4rem 2rem;
+background-color: #f9f9f9;
+}
+
+.icon-title {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
+}
+
+.section-icon {
+width: 150px;
+height: 100px;
+margin-bottom: 1rem;
+}
+
+.team-section h2 {
+font-size: 2rem;
+font-weight: 700;
+margin-bottom: 0.5rem;
+}
+
+.dots {
+display: flex;
+justify-content: center;
+gap: 8px;
+margin-top: 1rem;
+}
+
+.dots span {
+width: 8px;
+height: 8px;
+background-color: #FE7743;
+border-radius: 50%;
+opacity: 0.6;
+}
+
+.dots span:hover {
+opacity: 1;
+}
+
+.values-list {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 2rem;
+margin-top: 3rem;
+}
+
+.value-item {
+flex: 1;
+min-width: 250px;
+max-width: 300px;
+padding: 0;
+background: none;
+border-radius: 10px;
+text-align: left;
+color: #222;
+}
+
+.value-item h3 {
+font-weight: 700;
+font-size: 1.1rem;
+margin-bottom: 0.5rem;
+}
+
+.value-item p {
+color: #444;
+line-height: 1.6;
+font-size: 0.95rem;
+}
+/* Estilos del Footer */
+.footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 60px 0 0 0;
+  margin-top: 50px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.footer-logo p {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #273F4F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+}
+
+.social-icon.facebook:hover {
+  background-color: #1877f2;
+}
+
+.social-icon.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.twitter:hover {
+  background-color: #1da1f2;
+}
+
+.social-icon.youtube:hover {
+  background-color: #ff0000;
+}
+
+.footer-section h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 30px;
+  height: 2px;
+  background-color: #FE7743;
+  transition: width 0.3s ease;
+}
+
+.footer-section:hover h3::after {
+  width: 50px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: #888;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-section ul li a::before {
+  content: '›';
+  margin-right: 8px;
+  color: #FE7743;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #FE7743;
+  padding-left: 10px;
+}
+
+.footer-section ul li a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.contact-info li i {
+  color: #FE7743;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #111111;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #273F4F;
+}
+
+/* Responsive del Footer */
+@media (max-width: 992px) {
+  .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-content {
+      grid-template-columns: 1fr;
+  }
+
+  .footer-section {
+      text-align: center;
+  }
+
+  .footer-section h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+  .social-media {
+      justify-content: center;
+  }
+
+  .contact-info li {
+      justify-content: center;
+  }
+
+  .footer-links {
+      flex-direction: column;
+      gap: 10px;
+  }
+}
+
+
+  
+</style>
+
+<body>
+
+ <nav class="navbar">
+  <a href="index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <div class="menu-btn" id="menu-btn">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="iniciode_sesión.html">Login</a>
+    <a href="AboutUs.html">Nosotros</a>
+   
+    <hr>
+
+    <!--APARTADOS QUE LE AGREGO AL MENÚ-->
+    <a href="carros.html">Buscador</a>
+    <a href="arreglos.html">Gifts cards</a>
+    <a href="Becomeahost.html">Become a host</a>
+    <a href="howorks.html">How road line works</a>       
+    <a href="#">Contact support</a> 
+    <a href="terms & concepts.html">terms and concepts</a> 
+     <a href="insurance.html">Insurance & protection</a> 
+  </div>
+</nav>
+
+        <div class="hero-section">
+          <div class="hero-section-text">
+          <h1 class="hero-title aptos">Do you want a gift card?</h1>
+          <p class="hero-subtitle aptos">Help make birthdays, special events, or any travel occasion into something extra-memorable for someone you care about.</p>
+          <div class="contenedor-botones">
+              <a href="buygiftcard.html"><button class="boton1">Buy a gift card</button></a>
+              <a href="formulariogiftcards.html"><button class="boton2">Redeem your card</button></a>
+        </div>
+        </div>
+        <img src="carro blanco.png" alt="blanco" class="img-blanco-carro">
+      </div>
+
+        <div class="contenedor-auto">
+</div>
+<div class="turo-section">
+  <div class="image-cards">
+    <div class="card">
+      <img src="car yellow.jpg" alt="">
+      <div class="logo">ROAD LINE</div>
+    </div>
+    <div class="card">
+      <img src="car white.jpg" alt="">
+      <div class="logo">ROAD LINE</div>
+    </div>
+    <div class="card">
+      <img src="car black.jpg" alt="">
+      <div class="logo">ROAD LINE</div>
+    </div>
+  </div>
+
+  <div class="card-text">
+    <h2>Choose from six dreamy designs</h2>
+    <a href="buygiftcard.html"> <button>Explore card designs</button></a>
+  </div>
+</div>
+
+<div class="team-section aptos">
+  <div class="icon-title">
+    <img src="tarjeta.png" alt="Gift icon" class="section-icon">
+    <h2>Gifts for any occasion</h2>
+    <div class="dots">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="values-list">
+    <div class="value-item aptos">
+      <h3 class="aptos">Birthdays and holidays</h3>
+      <p class="aptos">
+        This is the perfect gift for that friend who's hard to buy for.
+        Experiences are often better gifts than things anyway, so give
+        the gift of travel and they might just get a story out of it, too!
+      </p>
+    </div>
+    <div class="value-item aptos">
+      <h3 class="aptos">Weddings and special events</h3>
+      <p class="aptos">
+        Give travel as your wedding gift and help the happy newlyweds
+        have the perfect honeymoon. Or add some sparkle to any celebration
+        with a car that's as special as the occasion.
+      </p>
+    </div>
+    <div class="value-item aptos">
+      <h3 class="aptos">Father’s Day and Mother’s Day</h3>
+      <p class="aptos">
+        Spoil them with some special wheels that'll help take the stress
+        out of getting around so they can focus on making memories.
+      </p>
+    </div>
+  </div>
+</div>
+      <footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#login">Login</a></li>
+                    <li><a href="#Join">Join us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about us">About us</a></li>
+                    <li><a href="#team">Our team</a></li>
+                    <li><a href="#information">Information</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#How">How roadline works</a></li>
+                    <li><a href="#become">Become a host</a></li>
+                    <li><a href="#car">Car rental</a></li>
+                    <li><a href="#gift">Gift cards</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="#insurance">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="#privacidad">Política de privacidad</a>
+                <a href="#terminos">Términos y condiciones</a>
+            </div>
+        </div>
+ <footer class="footer">
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="imgworks/logo2.0.png" alt="Roadline">
+                    <p class="aptos">Your ride, Your way</p>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Road Line</h3>
+                <ul>
+                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="iniciode_sesión.html">Login</a></li>
+                    <li><a href="carros.html">Services</a></li>
+                    <li><a href="AboutUs.html">About us</a></li>
+                    <li><a href="meatteam.html">Our team</a></li>
+                    <li><a href="howorks.html">How roadline works</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="Becomeahost.html">Become a host</a></li>
+                    <li><a href="form.html">Car rental</a></li>
+                    <li><a href="arreglos.html">Gift cards</a></li>
+                    <li><a href="casaca.html">Blog</a></li>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="insurance.html">Insurance and Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section aptos">
+                <h3>Contact us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> San Salvador, El Salvador</li>
+                    <li><i class="fas fa-phone"></i> +503 2222-2222</li>
+                    <li><i class="fas fa-envelope"></i> info@raodline.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom aptos">
+            <p>&copy; 2025 Road Line all rights reserved</p>
+            <div class="footer-links">
+                <a href="terms & concepts.html">Política de privacidad</a>
+                <a href="terms & concepts.html">Términos y condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+ const btn = document.getElementById('menu-btn');
+const menu = document.getElementById('menu');
+
+btn.addEventListener('click', () => {
+  btn.classList.toggle('open');
+  menu.classList.toggle('show');
+});
+
+// Cierra el menú si haces clic fuera de él
+document.addEventListener('click', function(event) {
+  if (!btn.contains(event.target) && !menu.contains(event.target)) {
+    btn.classList.remove('open');
+    menu.classList.remove('show');
+  }
+});
+
+</script>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js_busq/buscador.js"></script>
+
+    <script src="//code.tidio.co/qzpqul1pvj4heu54gujuwuzphmx0xwu5.js" async></script>
+
+      </body>
+</html>  
