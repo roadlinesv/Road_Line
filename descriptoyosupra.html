@@ -1372,6 +1372,142 @@ hr {
       favMsg.classList.remove('fadeInOut');
     }, 2000);
   });
+
+
+  // Array de autos con los datos (ajusta según lo que tengas)
+const autos = [
+  {
+    titulo: "Nissan NV 2017",
+    descripcion: "4.95 stars (San Miguel), 13 Trips, Oct 19–25",
+    precio: "$420 Total",
+    imagen: "img_busq/Nissan nv 2017.jpg",
+    type: "vans"
+  },
+  {
+    titulo: "Honda Odyssey 2025",
+    descripcion: "5.0 stars, 8 Trips, Jul 25–30",
+    precio: "$250 Total",
+    imagen: "img_busq/Honda Odyssey.jpg",
+    type: "minivans"
+  },
+  {
+    titulo: "Toyota Tacoma 2024",
+    descripcion: "5.0 stars (Usulután), 15 Trips, Apr 15–20",
+    precio: "$300 Total",
+    imagen: "img_busq/Toyota tacoma 2024.jpg",
+    type: "trucks"
+  },
+  {
+    titulo: "Chevrolet Express 2022",
+    descripcion: "4.95 stars (La Unión), 13 Trips, Jan 7–12",
+    precio: "$370 Total",
+    imagen: "img_busq/2022-chevrolet-express-front-left.jpg",
+    type: "vans"
+  },
+  {
+    titulo: "Ford Transit 2022",
+    descripcion: "4.96 stars (Chalatenango), 11 Trips, Feb 21–26",
+    precio: "$400 Total",
+    imagen: "img_busq/Ford transit 2022.jpg",
+    type: "vans"
+  },
+  {
+    titulo: "Toyota Sienna 2021",
+    descripcion: "5.0 stars (Sonsonate), 10 Trips, Nov 1–6",
+    precio: "$245 Total",
+    imagen: "img_busq/Toyota Sienna 2021.jpg",
+    type: "minivans"
+  },
+  {
+    titulo: "Mercedes Benz Sprinter 2016",
+    descripcion: "4.97 stars (Ahuachapán), 9 Trips, Aug 27–31",
+    precio: "$390 Total",
+    imagen: "img_busq/mercedes benz sprinter 2016.jpg",
+    type: "vans"
+  }
+  // Agrega aquí más autos si quieres
+];
+
+// Referencias a elementos
+const contenedor = document.getElementById("contenedor-autos");
+const buscador = document.getElementById("buscador");
+const contador = document.getElementById("contador-autos");
+const filtros = document.querySelectorAll('.filtro');
+
+let filtroTextoActual = "";
+let filtroTipoActual = null;
+
+// Función para mostrar autos filtrados
+function mostrarAutos(filtroTexto = "", tipoFiltro = null) {
+  contenedor.innerHTML = "";
+
+  // Filtrar autos por texto y tipo
+  const autosFiltrados = autos.filter(auto => {
+    const textoCoincide = auto.titulo.toLowerCase().includes(filtroTexto.toLowerCase());
+    const tipoCoincide = tipoFiltro ? auto.type.toLowerCase() === tipoFiltro.toLowerCase() : true;
+    return textoCoincide && tipoCoincide;
+  });
+
+  // Actualizar contador
+  contador.textContent = autosFiltrados.length > 0
+    ? `${autosFiltrados.length} auto(s) encontrado(s).`
+    : "No se encontraron autos.";
+
+  // Mostrar autos en el contenedor
+  autosFiltrados.forEach(auto => {
+    const divCol = document.createElement('div');
+    divCol.classList.add('col');
+
+    divCol.innerHTML = `
+      <div class="card">
+        <img src="${auto.imagen}" class="card-img-top" alt="${auto.titulo}">
+        <div class="card-body">
+          <h5 class="card-title">${auto.titulo}</h5>
+          <h6 class="card-text">${auto.descripcion}</h6>
+          <div class="d-flex justify-content-between">
+            <h6></h6> <!-- Opcional, lo puedes eliminar o poner más info -->
+            <h6 style="text-decoration:underline;">${auto.precio}</h6>
+          </div>
+          <a href="#" class="btn btn-info-custom mt-2">Más información</a>
+        </div>
+      </div>
+    `;
+
+    contenedor.appendChild(divCol);
+  });
+}
+
+// Evento input en buscador
+buscador.addEventListener("input", e => {
+  filtroTextoActual = e.target.value;
+  mostrarAutos(filtroTextoActual, filtroTipoActual);
+});
+
+// Evento click en filtros
+filtros.forEach(filtro => {
+  filtro.addEventListener("click", () => {
+    filtros.forEach(f => f.classList.remove("selected"));
+    if(filtroTipoActual === filtro.dataset.type.toLowerCase()){
+      filtroTipoActual = null; // quitar filtro si ya está seleccionado
+    } else {
+      filtroTipoActual = filtro.dataset.type.toLowerCase();
+      filtro.classList.add("selected");
+    }
+    mostrarAutos(filtroTextoActual, filtroTipoActual);
+  });
+});
+
+// Función para resetear filtros y búsqueda
+function resetFilters() {
+  filtroTipoActual = null;
+  filtroTextoActual = "";
+  buscador.value = "";
+  filtros.forEach(f => f.classList.remove("selected"));
+  mostrarAutos();
+}
+
+// Inicializar mostrando todos
+mostrarAutos();
 </script>
 
 <script src="https://unpkg.com/scrollreveal"></script>
@@ -1380,4 +1516,5 @@ hr {
 
 </body>
 </html>
+
 
