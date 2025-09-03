@@ -6,15 +6,314 @@
     <link rel="stylesheet" href="css_giftcards/formulariogiftcards.css">
     <title>Road Line | Gift Cards</title>
 </head>
+    <style>
+        /* formulariogiftcards.css */
+
+/* Estilos generales del cuerpo y contenedor principal */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    color: #333;
+}
+
+.main-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+h1, h2, h4{
+    font-family: 'freightDisp Pro Black','serif';
+}
+p{
+  font-family: 'basis grotesque', sans-serif;
+}
+h3{
+    font-weight: bold;
+}
+
+    /* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #273F4F;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-btn div {
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #e2dcdc;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  display: none;
+  flex-direction: column;
+  width: 280px;
+  height: 500px;
+  z-index: 1;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #fe7743;
+}
+
+.show {
+  display: flex;
+}
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Sección izquierda: El formulario */
+.left-section {
+    flex: 1;
+    padding: 40px;
+}
+
+h1, h3 {
+    font-weight: 900;
+    margin-top: 0;
+}
+
+h1 {
+    font-family: 'FreightDisp Pro Black', serif;
+    font-size: 2.8rem;
+    margin-bottom: 5px;
+}
+
+h3 {
+   font-family: 'Basis Grotesque', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Estilos del formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form-text {
+    font-size: 0.85em;
+    color: #888;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Estilos del checkbox */
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.form-check-label {
+    font-size: 0.9em;
+}
+
+#purple {
+    color: #FE7743;
+    text-decoration: none;
+    cursor: pointer;
+}
+#purple :hover{
+    background-color: #ec612a;   
+}
+
+/* Botón de "Buy Now" */
+.btn-primary {
+  height: 40px;
+  width: 100px;
+  background-color: #FE7743;
+  color: #fff;
+  border: #FE7743;
+  margin-left: 0px;
+  border-radius: 6px;
+  margin-bottom: 25px; 
+  margin-top: 20px; 
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #ec612a;
+}
+
+/* Sección derecha: Resumen de la tarjeta regalo */
+.right-section {
+    flex: 1;
+    padding: 40px;
+    /* Se ha quitado border-left: 1px solid #eee; */
+}
+
+.gift-card-summary {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+#giftCardPreview {
+    width: 140px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: #000;
+}
+
+.card-info {
+    font-size: 1em;
+}
+.card-info p {
+    margin: 5px 0;
+}
+
+#giftCardAmount {
+    font-weight: 700;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.buttons button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.buttons button:hover {
+    border-color: #000;
+}
+
+.total-section {
+    margin-top: 30px;
+}
+.total-section h3 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.add-card-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1em;
+}
+.add-card-link:hover {
+    text-decoration: underline;
+}
+h5{
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: small;
+}
+footer{
+    width: 100%;
+    height: 50px;
+    background-color: #e9e5e5;
+    font-family: 'FreightDisp Pro Black', serif;
+}
+    </style>
 <body>
 
      <nav class="navbar">
-  <a href="Index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <a href="index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
   <div class="menu-btn" id="menu-btn">
     <div></div><div></div><div></div>
   </div>
   <div class="menu" id="menu">
-    <a href="Index.html">Inicio</a>
+    <a href="index.html">Inicio</a>
     <a href="iniciode_sesión.html">Login</a>
     <a href="AboutUs.html">Nosotros</a>
    
@@ -153,6 +452,8 @@
                 document.getElementById("fechaEnvio").textContent = fechaEnvio;
             }
         });
+
+        
     </script>
   <footer class="footer">
 
@@ -181,7 +482,7 @@
             <div class="footer-section aptos">
                 <h3>Road Line</h3>
                 <ul>
-                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="iniciode_sesión.html">Login</a></li>
                     <li><a href="carros.html">Services</a></li>
                     <li><a href="AboutUs.html">About us</a></li>
@@ -221,4 +522,5 @@
         </div>
     </footer>
 </body>
+
 </html>
