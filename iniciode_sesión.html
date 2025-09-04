@@ -7,16 +7,438 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <title>Inicio de sesión</title>
 </head>
+    <style>
+        :root {
+    --primary-color: #FE7743;
+    --primary-color-dark: #273F4F;
+    --text-dark: #000000;
+    --text-light: #767268;
+    --extra-light: #EFEEEA;
+    --white: #ffffff;
+    --max-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+/* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ccc;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-btn div {
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Menú desplegable */
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 2rem;
+  background: #34495e;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  display: none;
+  flex-direction: column;
+  width: 360px;
+  height: 500px;
+  z-index: 1;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  color: #1abc9c;
+}
+
+.show {
+  display: flex;
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Animación del ícono */
+.menu-btn.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-btn.open div:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+/*logo*/
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    max-width: 35px;
+}
+
+.logo span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--white); /* Este color blanco solo aplicará si el logo es un span, no en el header actual que tiene color oscuro. */
+    white-space: nowrap;
+}
+/*Finaliza logo*/
+
+/* Formulario de inició de sesión*/
+
+#box{
+    width: 500px;
+    height: 450px;
+    background-color:#EFEEEA;
+    margin: auto;
+    padding: 60px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+/* Texto de creación de cuenta */
+.cuenta{
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.teamsection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+ 
+.team-texto {
+    max-width: 400px;
+  }
+.boton {
+    display: inline-block;
+    background-color:  #fe7743;;
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+
+  }
+
+
+  .modal {
+  display: none; 
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #fe7743;
+}
+#pop{
+    display: inline-block;
+    background-color:  #fe7743;;
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+
+  
+}
+/* Estilos del Footer */
+.footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 60px 0 0 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #273F4F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon.facebook:hover {
+    background-color: #1877f2;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-icon.twitter:hover {
+    background-color: #1da1f2;
+}
+
+.social-icon.youtube:hover {
+    background-color: #ff0000;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: #FE7743;
+    transition: width 0.3s ease;
+}
+
+.footer-section:hover h3::after {
+    width: 50px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #888;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-section ul li a::before {
+    content: '›';
+    margin-right: 8px;
+    color: #FE7743;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #FE7743;
+    padding-left: 10px;
+}
+
+.footer-section ul li a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.contact-info li i {
+    color: #FE7743;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #111111;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #273F4F;
+}
+
+/* Responsive del Footer */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-media {
+        justify-content: center;
+    }
+
+    .contact-info li {
+        justify-content: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+    </style>
 <body>
     
 <!--Menú-->
  <nav class="navbar">
-  <a href="Index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
+  <a href="index.html"><img src="imgworks/logo2.0.png" alt="Logo"></a>
   <div class="menu-btn" id="menu-btn">
     <div></div><div></div><div></div>
   </div>
   <div class="menu" id="menu">
-    <a href="Index.html">Inicio</a>
+    <a href="index.html">Inicio</a>
     <a href="iniciode_sesión.html">Login</a>
     <a href="AboutUs.html">Nosotros</a>
    
@@ -131,7 +553,7 @@
             <div class="footer-section aptos">
                 <h3>Road Line</h3>
                 <ul>
-                    <li><a href="Index.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="iniciode_sesión.html">Login</a></li>
                     <li><a href="carros.html">Services</a></li>
                     <li><a href="AboutUs.html">About us</a></li>
@@ -231,5 +653,6 @@
 
 </body>
 </html>
+
 
 
